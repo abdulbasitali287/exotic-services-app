@@ -114,7 +114,7 @@
                     <nav class="navbar navbar-expand-lg header1" style="background-color: var(--background-color)">
                         {{-- <nav class="navbar navbar-expand-lg header1" style="background-color: #2b2e3a"> --}}
                         <div class="container-fluid">
-                            <a href="/" class="navbar-brand ps-5"><img class="img-fluid" width="100"
+                            <a href="/" class="navbar-brand ps-5"><img class="img-fluid ms-4" width="80"
                                     src="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-06.png') }}" alt=""></a>
                             {{-- <a href="/" class="navbar-brand ps-5"><img class="img-fluid" width="120"
                                     src="{{ asset('assets/logo-4.png') }}" alt=""></a> --}}
