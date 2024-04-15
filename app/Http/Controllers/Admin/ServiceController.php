@@ -54,10 +54,10 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
+    public function show(Service $service)
+    {
+        return response()->json(['service' => $service,'image' => $service->getFirstMediaUrl('service_banners')]);
+    }
 
     /**
      * Show the form for editing the specified resource.

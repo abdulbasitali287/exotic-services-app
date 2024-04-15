@@ -19,7 +19,7 @@ class Service extends Model implements HasMedia
         $this
             ->addMediaConversion('service_banner')
             ->performOnCollections('service_banners')
-            ->fit(Manipulations::FIT_CROP, 1900, 750)
+            ->fit(Manipulations::FIT_CROP, 1920, 600)
             ->nonQueued();
     }
 }

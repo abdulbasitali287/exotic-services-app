@@ -9,17 +9,22 @@
 @endpush
 @section('content')
     <div class="continer-fluid p-0 m-0">
+        @foreach ($bannersData as $banner)
+        @if ($banner->page === "about-us")
         <div class="row p-0 m-0">
             <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
-                <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75">
+                {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
+                <img src="{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
             <div
                 class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">WE PRIDE OURSELVES IN PROVIDING EXCELLENT SERVICE
+                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
-                <h1 class="text-black display-3 fw-bold pt-4 pb-4">ABOUT US</h1>
+                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
             </div>
         </div>
+        @endif
+        @endforeach
 
         <section class="pt-5" style="background-color: #252525">
             <div class="container">
@@ -151,7 +156,9 @@
                     <div class=" col-lg-5 col-md-12 col-md-5 col-sm-12 col-12 ms-5 mt-5 pe-4 mb-5 about-us_another">
                         <div class="about-us__lastSect2">
                             <div class="about-us__lastSect2Img">
-                                <img src="{{ asset('assets/comma.png')}}" style="filter: hue-rotate(220deg);" alt="">
+                                <div class="w-100">
+                                    <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
+                                </div>
                             </div>
                             <div class="about-us__lastSect2Text">
                                 <h3>Expert service when you need it. We'll be there for you in time. This is our guarantee

@@ -23,8 +23,7 @@ class BannerController extends Controller
 
     public function create(): View
     {
-        $pages = Page::pluck('name', 'id');
-        return view('screens.admin.banners.create', compact('pages'));
+        return view('screens.admin.banners.create');
     }
 
     public function store(StoreRequest $request)

@@ -84,37 +84,37 @@
 </head>
 
 <body class="">
-
+    @include('sweetalert::alert')
     @php
         $phNo = \App\Models\PhoneService::first();
     @endphp
 
     <div class="container-fluid m-0 p-0 sticky-top">
         <div class="row p-0 m-0 extraNav">
-            <div class="col-12 header1 text-center header_up " style="background-color: var(--background-color)">
+            <div class="col-12 m-0 p-0 text-center bg-white header_up ">
                 {{-- <div class="col-12 header1 text-center header_up " style="background-color: #2b2e3a"> --}}
-                <a href="tel:+971503028022"><i class="fa-solid fa-phone-flip text-white m-3"><span
-                            class="text-white fw-normal m-3">CALL US
+                <a href="tel:+971503028022"><i class="fa-solid fa-phone-flip text-dark mx-3 mt-3"><span
+                            class="text-dark fw-normal m-3">CALL US
                             NOW {{ isset($phNo->phone_number) }}&nbsp;&nbsp;</span><span
                             class="fw-normal fs-4">|</span></i></a>
-                <a href="{{ route('contact_us') }}"><i class="fa fa-calendar-o text-white m-3"><span
-                            class="text-white fw-normal m-3">GET FREE
+                <a href="{{ route('contact_us') }}"><i class="fa fa-calendar-o text-dark mx-3 mt-3"><span
+                            class="text-dark fw-normal m-3">GET FREE
                             APPOINTMENT&nbsp;&nbsp;</span></span><span class="fw-normal fs-4">|</span></i></a>
-                <a href="/contact-us#map"><i class="fa-solid fa-location-dot text-white m-3"><span
-                            class="text-white fw-normal m-3">FIND US
+                <a href="/contact-us#map"><i class="fa-solid fa-location-dot text-dark mx-3 mt-3"><span
+                            class="text-dark fw-normal m-3">FIND US
                             ON MAP&nbsp;&nbsp;</span></i></a>
             </div>
         </div>
 
-        <header style="background-color: var(--background-color)">
+        <header class="bg-white">
             {{-- <header style="background-color: #2b2e3a"> --}}
             <div class="row p-0 m-0">
-                <div class="col-12 header1" style="background-color: var(--background-color)">
+                <div class="col-12 bg-white">
                     {{-- <div class="col-12 header1" style="background-color: #2b2e3a"> --}}
-                    <nav class="navbar navbar-expand-lg header1" style="background-color: var(--background-color)">
+                    <nav class="navbar navbar-expand-lg bg-white">
                         {{-- <nav class="navbar navbar-expand-lg header1" style="background-color: #2b2e3a"> --}}
                         <div class="container-fluid">
-                            <a href="/" class="navbar-brand ps-5"><img class="img-fluid ms-4" width="80"
+                            <a href="/" class="navbar-brand ps-5"><img class="img-fluid ms-4" width="60"
                                     src="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-06.png') }}" alt=""></a>
                             {{-- <a href="/" class="navbar-brand ps-5"><img class="img-fluid" width="120"
                                     src="{{ asset('assets/logo-4.png') }}" alt=""></a> --}}
@@ -127,19 +127,30 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pt-2 nav_iems">
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ route('home') }}">HOME</a>
                                     </li>
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ route('about-us') }}">About Us</a>
                                     </li>
                                     <li class="nav-item dropdown pe-4">
-                                        <a class="nav-link dropdown-toggle text-white fw-normal fs-5"
+                                        <a class="nav-link text-dark dropdown-toggle fw-normal fs-5"
                                             href="" data-bs-toggle="dropdown" aria-expanded="false">
                                             SERVICES
                                         </a>
                                         <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ route('services') }}">View All</a>
+                                            </li>
+                                            @foreach ($servicesData as $service)
+                                                <li class="dropdown-item dropend sub-serviceCss">
+                                                    <a class="nav-link" href="{{ route('service.details',$service->id) }}">
+                                                        {{ $service->navigation_name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        {{-- <ul class="dropdown-menu">
                                             @php
                                                 $serviceExisted = [];
                                             @endphp
@@ -149,14 +160,14 @@
                                                         $serviceExisted[] = $service->service_type;
                                                     @endphp
                                                     <li class="dropdown-item dropend sub-serviceCss">
-                                                        <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                                             {{ $service->service_type }}
                                                         </a>
                                                         <ul class="dropdown-menu list-scroll border-0">
                                                             @foreach ($servicesData as $innerService)
                                                                 @if ($innerService->service_type == $service->service_type)
                                                                     <li>
-                                                                        <a class="dropdown-item" href="/services/{{ $innerService->id }}/{{ $innerService->slug }}">
+                                                                        <a class="dropdown-item" href="{{ route('service.details',$innerService->id) }}">
                                                                             {{ $innerService->navigation_name }}
                                                                         </a>
                                                                     </li>
@@ -166,11 +177,11 @@
                                                     </li>
                                                 @endif
                                             @endforeach
-                                        </ul>
+                                        </ul> --}}
 
                                     </li>
                                     {{-- <li class="nav-item dropdown pe-4">
-                                        <a class="nav-link dropdown-toggle text-white fw-normal fs-5" href=""
+                                        <a class="nav-link dropdown-toggle text-dark fw-normal fs-5" href=""
                                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Services
                                         </a>
@@ -192,19 +203,19 @@
                                         </ul>
                                     </li> --}}
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ route('industries-surved') }}">Industries Served</a>
                                     </li>
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ route('career') }}">Careers</a>
                                     </li>
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ url('blogs') }}">Blogs</a>
                                     </li>
                                     <li class="nav-item pe-4">
-                                        <a class="nav-link active text-white fw-normal fs-5" aria-current="page"
+                                        <a class="nav-link active fw-normal fs-5" aria-current="page"
                                             href="{{ route('contact-us') }}">Contact us</a>
                                     </li>
                                     {{-- @foreach ($appPages as $page)
@@ -451,16 +462,16 @@
                 <ul class="social-icons" style="list-style-type: none;margin-top: 25px;">
                     {{-- <li class="footer fw-bold mt-2 fs-5 mb-3">FOLLOW US ON</li> --}}
                     <li>
-                        <a href="#" class="" style="background-color: var(--hover-background-color)"><i
+                        <a href="#" class="" style="background-color: var(--background-color)"><i
                                 class="fa-brands fa-instagram text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--hover-background-color)"
+                        <a href="#" class="" style="background-color: var(--background-color)"
                             style="padding: 15px 16px 10px 16px;"><i class="fa fa-facebook text-white"
                                 style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--hover-background-color)"><i
+                        <a href="#" class="" style="background-color: var(--background-color)"><i
                                 class="fa-brands fa-youtube text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--hover-background-color)"><i
+                        <a href="#" class="" style="background-color: var(--background-color)"><i
                                 class="fa-brands fa-twitter text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--hover-background-color)"><i
+                        <a href="#" class="" style="background-color: var(--background-color)"><i
                                 class="fa-brands fa-linkedin text-white" style=" font-size: 25px"></i></a>
                     </li>
                     <li class="footer header1 text-wrap fw-normal mt-4">© Copyright 2024 web programmer</li>
@@ -474,7 +485,7 @@
 
     <div>
         <a href="" class="scrollup">
-            <i class="fa-solid fa-arrow-up fs-1 text-warning"></i>
+            <i class="fa-solid fa-arrow-up fs-1" style="color: var(--background-color)"></i>
         </a>
     </div>
 

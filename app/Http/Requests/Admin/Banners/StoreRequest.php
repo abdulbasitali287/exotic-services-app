@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'alt_text' => 'required',
-            'banner_image.*' => 'image|mimes:png,jpg,jpeg|max:10240',
+            'banner_image.*' => 'image',
         ];
     }
 
@@ -41,7 +41,7 @@ class StoreRequest extends FormRequest
 
     public function sanitisedStore(): array {
         return [
-            'page_id' => $this->page,
+            'page' => $this->page,
             'title' => strtoupper($this->title),
             'description' => $this->description,
             'alt_text' => $this->alt_text

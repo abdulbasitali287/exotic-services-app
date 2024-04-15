@@ -1,6 +1,10 @@
 :root {
-    --background-color: #FCBF17;
+    --background-color: #F69517;
+    --background-color-two: #FCBF17;
+    --background-color-three: #F79915;
+    --footer-background-color: #2B2E3A;
     --hover-background-color: #fcd16d;
+    --input-color: #E3E3E3;
 }
 /* body{
     font-family: 'Poppins', sans-serif;
@@ -48,7 +52,7 @@ a.btn:hover{
     }
 
 #footer .header1{
-    background-color: var(--background-color);
+    background-color: var(--footer-background-color);
     color: #ffffff;
 }
 /* #footer .header1 ul{
@@ -65,7 +69,7 @@ a.btn:hover{
 
 header {
     width: 100%;
-    padding: 10px 0;
+    /* padding: 10px 0; */
     background: #171616;
     background: #171616;
     /* animation magic */
@@ -390,7 +394,7 @@ button:hover{
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: var(--background-color);
+    background-color: var(--footer-background-color);
     border: none;
     z-index: 1;
 }
@@ -402,7 +406,7 @@ button:hover{
 .dropdown-item {
     padding: 5px 15px;
     text-decoration: none;
-    color: #333;
+    /* color: #333; */
     /* border: 1px solid #fcd16d; */
     display: block;
 }
@@ -417,7 +421,7 @@ button:hover{
 }
 
 .nav-item a:hover{
-    background-color: var(--hover-background-color);
+    background-color: #f3f0f0;
     color: white;
 }
 /* .nav-item a:hover{
@@ -426,7 +430,7 @@ button:hover{
 } */
 
 .dropdown-menu li a:hover{
-    background-color: var(--hover-background-color);
+    background-color: #b3b2b2;
     color: white;
 }
 /* .dropdown-menu li a:hover{
@@ -444,16 +448,24 @@ button:hover{
     font-size: 16px!important;
     border-bottom: 1px solid lightgrey;
 }
+.my-new__form label{
+    color: #645f5f;
+}
+.my-new__form input{
+    background-color: var(--input-color)!important;
+}
 
 .my-new__form input:focus{
     background-color: transparent!important;
-    color: white!important;
+    color: rgb(68, 65, 65)!important;
     border: 0px solid transparent!important;
 }
-
+.my-new__form textarea{
+    background-color: var(--input-color)!important;
+}
 .my-new__form textarea:focus{
     background-color: transparent!important;
-    color: white!important;
+    color: rgb(68, 65, 65)!important;
     border: 0px solid transparent!important;
 }
 
@@ -1091,22 +1103,21 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .main-page__reviews{
-        padding-right: 1rem!important;
-        padding-left: 1rem!important;
+        /* padding-right: 1rem!important;
+        padding-left: 1rem!important; */
     }
 
     .main-page__reviews .card .card-body{
-        padding: 1rem!important;
-        max-height: 490px!important;
-        min-height: 490px!important;
+        min-height: 0px!important;
     }
 
     .main-page__reviews .card {
-        margin-bottom: 30px!important;
+        border-color: #aaa7a7;
+        /* margin-bottom: 30px!important; */
     }
 
     .main-page__realAll{
-        margin-top: 0px!important;
+        /* margin-top: 0px!important; */
     }
 
     .main-page__getApp{

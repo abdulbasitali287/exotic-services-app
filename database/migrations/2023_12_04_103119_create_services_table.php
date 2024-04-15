@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('service_name');
-            $table->string('slug');
+            $table->string('service_name')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('sub_heading')->nullable();
             $table->string('service_type')->nullable();
             $table->string('navigation_name')->nullable();
             $table->boolean('feature_service')->default(0);

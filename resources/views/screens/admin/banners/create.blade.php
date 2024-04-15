@@ -12,7 +12,7 @@
                     <div class="col">
                         <div class="form-group mb-2">
                             {{ Form::label('page', 'Page', ['class' => 'form-label']) }}
-                            {{ Form::select('page', $pages , null, ['placeholder' => 'select page...','class' => 'form-control']) }}
+                            {{ Form::text('page', null ,['class' => 'form-control']) }}
                             @error('page')
                                 <span class="mt-2 text-danger">{{ $message }}</span>
                             @enderror

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId('page_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('page')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('alt_text')->nullable();

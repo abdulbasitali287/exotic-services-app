@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PhoneNumberController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -37,14 +38,14 @@ Route::prefix('admin')->group(function () {
         Route::delete('destroy/{banner}','destroy')->name('destroy');
     });
 
-    Route::prefix('page')->name('page.')->controller(PageController::class)->group(function(){
-        Route::get('/','index')->name('index');
-        Route::get('create','create')->name('create');
-        Route::post('store','store')->name('store');
-        Route::get('edit/{page}','edit')->name('edit');
-        Route::put('update/{page}','update')->name('update');
-        Route::delete('destroy/{page}','destroy')->name('destroy');
-    });
+    // Route::prefix('page')->name('page.')->controller(PageController::class)->group(function(){
+    //     Route::get('/','index')->name('index');
+    //     Route::get('create','create')->name('create');
+    //     Route::post('store','store')->name('store');
+    //     Route::get('edit/{page}','edit')->name('edit');
+    //     Route::put('update/{page}','update')->name('update');
+    //     Route::delete('destroy/{page}','destroy')->name('destroy');
+    // });
 
     Route::prefix('blogs')->name('blog.')->controller(BlogsController::class)->group(function(){
         Route::get('/','index')->name('index');
@@ -76,9 +77,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/','index')->name('index');
         Route::get('create','create')->name('create');
         Route::post('store','store')->name('store');
+        Route::get('show/{service}','show')->name('show');
         Route::get('edit/{service}','edit')->name('edit');
         Route::put('update/{service}','update')->name('update');
         Route::delete('destroy/{service}','destroy')->name('destroy');
+    });
+
+    Route::prefix('reviews')->name('reviews.')->controller(ReviewController::class)->group(function(){
+        Route::get('/','index')->name('index');
+        Route::get('create','create')->name('create');
+        Route::post('store','store')->name('store');
+        Route::get('edit/{review}','edit')->name('edit');
+        Route::put('update/{review}','update')->name('update');
+        Route::delete('destroy/{review}','destroy')->name('destroy');
     });
 });
 
@@ -89,6 +100,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('blogs','blogs');
     Route::get('blog/details/{blog}','blogDetails');
     Route::post('contact-us/store','contactStore')->name('contact-us.store');
+    Route::get('service-details/{service}','serviceDetails')->name('service.details');
+    Route::get('services/list','services')->name('services');
 
 });
 
@@ -96,7 +109,7 @@ Route::controller(HomeController::class)->group(function(){
 // Route::get('/', function () { return view('welcome'); })->name('home');
 
 // home
-Route::view('/','screens.user.welcome')->name('home');
+// Route::view('/','screens.user.welcome')->name('home');
 // about us
 Route::view('/about-us','screens.user.frontend.about')->name('about-us');
 // services
@@ -104,11 +117,11 @@ Route::view('/about-us','screens.user.frontend.about')->name('about-us');
 // Route::view('/rental-and-trade','screens.user.frontend.services.rental-and-trade')->name('rental-and-trade');
 // Route::view('/diesel-pump-laboratory','screens.user.frontend.services.diesel-pump-laboratory')->name('diesel-pump-laboratory');
 // Route::view('/steel-fabrication','screens.user.frontend.services.steel-fabrication')->name('steel-fabrication');
-Route::view('/services-list','screens.user.frontend.services.services')->name('services');
-Route::view('/repair-and-maintenance','screens.user.frontend.services.repair-and-maintenance')->name('repair-and-maintenance');
-Route::view('/diesel-pump-laboratory','screens.user.frontend.services.diesel-pump-laboratory')->name('diesel-pump-laboratory');
-Route::view('/rental-and-trade','screens.user.frontend.services.rental-and-trade')->name('rental-and-trade');
-Route::view('/steel-fabrication','screens.user.frontend.services.steel-fabrication')->name('steel-fabrication');
+// Route::view('/services-list','screens.user.frontend.services.services')->name('services');
+// Route::view('/repair-and-maintenance','screens.user.frontend.services.repair-and-maintenance')->name('repair-and-maintenance');
+// Route::view('/diesel-pump-laboratory','screens.user.frontend.services.diesel-pump-laboratory')->name('diesel-pump-laboratory');
+// Route::view('/rental-and-trade','screens.user.frontend.services.rental-and-trade')->name('rental-and-trade');
+// Route::view('/steel-fabrication','screens.user.frontend.services.steel-fabrication')->name('steel-fabrication');
 // INDUSTRIES SERVED
 Route::view('/industries-surved','screens.user.frontend.industries-surved')->name('industries-surved');
 // career

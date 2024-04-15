@@ -15,17 +15,17 @@ class Banner extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
     protected $guarded = [];
 
-    public function page(): BelongsTo
-    {
-        return $this->belongsTo(Page::class);
-    }
+    // public function page(): BelongsTo
+    // {
+    //     return $this->belongsTo(Page::class);
+    // }
 
     public function registerMediaConversions(Media $media = null): void
     {
         $this
             ->addMediaConversion('banner')
             ->performOnCollections('banner_images')
-            ->fit(Manipulations::FIT_CROP, 300, 300)
+            ->fit(Manipulations::FIT_CROP, 1920, 600)
             ->nonQueued();
     }
 }

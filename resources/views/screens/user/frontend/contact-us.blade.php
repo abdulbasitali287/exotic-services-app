@@ -2,10 +2,16 @@
 @push('styles')
 <style>
     button.btn{
-        background-color: #1463F3!important;
+        font-size: 15px !important;
+                    font-weight: 500 !important;
+                    text-transform: uppercase !important;
+                    line-height: 1.56em !important;
+                    letter-spacing: 2px !important;
+                font-family: poppins, Sans-serif !important;
+                background-color: var(--background-color)!important;
     }
     button.btn:hover{
-        background-color: #84A4FC!important;
+        background-color: var(--hover-background-color)!important;
         color: #fff!important;
     }
 </style>
@@ -56,7 +62,7 @@
     </div>
 
 
-    <div class="container-fluid" id="appointment" style="background-color: #1D2023 !important">
+    {{-- <div class="container-fluid" id="appointment" style="background-color: #1D2023 !important">
         <div class="row mt-5">
             <div class="col-12 pt-5 header1">
                 <div class="w-25 ps-4 c-f">
@@ -103,15 +109,73 @@
                             @enderror
                         </div>
                     </div>
-                    <button class="btn btn-dark border-0 rounded-0 px-4 py-2 ms-4 mb-5 fs-5"
+                    <button class="btn border-0 rounded-0 px-4 py-2 ms-4 mb-5 fs-5"
                         style="font-size: 15px !important;
                     font-weight: 500 !important;
                     text-transform: uppercase !important;
                     line-height: 1.56em !important;
                     letter-spacing: 2px !important;
-                font-family: poppins, Sans-serif !important;"
+                font-family: poppins, Sans-serif !important;
+                background-color: var(--background-color)!important;color: white"
                         type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></button>
                 {!! Form::close() !!}
+                <div class="alert alert-success mt-3 d-none" id="successMessage">
+                    Thankyou For Contacting Us!!
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="container-fluid" id="appointment" >
+        <div class="row">
+            <div class="col-12">
+                <div class="w-25 ps-4 main-page__getApp">
+                    <h1 class="text-dark display-5 fw-bold font_heading">CONTACT FORM</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {!! Form::open(['route' => 'contact-us.store']) !!}
+                    <div class="d-flex justify-content-around flex-wrap my-new__form">
+                        <div class="mb-5 form-div" style="width: 25%">
+                            <label for="name" class="form-label fs-6 font">Name</label>
+                            <input type="name" name="name" class="form-control header1" id="name"
+                                style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;">
+                                @error('name')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
+                        </div>
+                        <div class="mb-5 form-div" style="width: 25%">
+                            <label for="phone" class="form-label fs-6 font">Phone</label>
+                            <input type="tel" name="phone" class="form-control header1"
+                                style="color: #adacac; border: none; border-bottom: 1px solid white; border-radius: 0;">
+                                @error('phone')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
+                        </div>
+
+                        <div class="mb-5 form-div" style="width: 40%">
+                            <label for="email" class="form-label fs-6 font">Email</label>
+                            <input type="email" name="email" class="form-control header1" id="email"
+                                style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;">
+                                @error('email')
+                                    <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
+                        </div>
+                        <div class="mb-5 form-div" style="width: 97%">
+                            <label for="Textarea" class="form-label fs-6 ps-0 font">
+                                Description</label>
+                            <textarea class="form-control header1" name="description" placeholder="Leave a comment here" id="description"
+                                style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;"></textarea>
+                                @error('description')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
+                        </div>
+                    </div>
+                    <button class="btn text-white border-0 rounded-0 px-4 py-3 ms-4 mb-5 fs-5"
+                        type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></button>
+                        {!! Form::close() !!}
                 <div class="alert alert-success mt-3 d-none" id="successMessage">
                     Thankyou For Contacting Us!!
                 </div>

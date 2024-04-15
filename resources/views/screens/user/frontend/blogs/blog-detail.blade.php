@@ -66,7 +66,7 @@
 
     .next-css a:hover,
     .prev-css a:hover {
-        color: #7887db;
+        /* color: #7887db; */
     }
 
     .prev-next_btns {
@@ -341,73 +341,61 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-12">
                 <div class="row prev-next_btns">
                     <div class="col-md-12 col-lg-6 col-sm-12 col-6 prev-css">
-                        {{-- @if ($previousBlog) --}}
-                        <a href="{{ url('blogs') }}" class="previousNext col-md-12">
-                            <p style="padding: 0px; margin:0px;color: #1463F3;"><b>PREVIOUS</b></p>
+                        @if ($previousPost)
+                        <a href="{{ url('blog/details',$previousPost->id) }}" class="previousNext col-md-12">
+                            <p style="padding: 0px; margin:0px;color: var(--background-color);"><b>PREVIOUS</b></p>
                             <p class="previousTextDynamic" style="padding: 0px; margin:0px;">
                                 {{ Str::limit(
-                                    'In the bustling industrial landscape of Saudi Arabia,
-                                                    where the machinery of
-                                                    commerce and industry operates tirelessly, the reliability of essential
-                                                    equipment
-                                                    like forklifts, generators, and material handling equipment is not just a
-                                                    convenience—it&#39;s the backbone of operational continuity. This underscores
-                                                    the
-                                                    necessity of preventive maintenance, particularly for &quot;forklift repair in
-                                                    Saudi
-                                                    Arabia,&quot; &quot;generator maintenance services,&quot; and the upkeep of
-                                                    material handling
-                                                    equipment, transforming it from a mere recommendation to an indispensable
-                                                    practice.',
-                                    130,
+                                    $previousPost->title,
+                                    40,
                                 ) }}
                             </p>
-                            {{-- <p class="previousTextDynamic" style="padding: 0px; margin:0px;">{{ Str::limit($previousBlog->title, 130)
-                    }}</p> --}}
                         </a>
-                        {{-- @else
+                        @else
                 <a class="previousNext col-md-12 col-sm-12 col-6">
-                  <p style="padding: 0px; margin:0px;"><b>PREVIOUS</b></p>
+                  <p style="padding: 0px; margin:0px;color: var(--background-color);"><b>PREVIOUS</b></p>
                   <p class="previousTextDynamic" style="padding: 0px; margin:0px;">No Previous Blog</p>
-                </a> --}}
-                        {{-- @endif --}}
+                </a>
+                        @endif
                     </div>
 
                     <div class="col-md-12 col-lg-6 col-sm-12 col-6 next-css">
-                        {{-- @if ($nextBlog) --}}
-                        {{-- <a href="/blog/{{ $nextBlog->id }}/{{ $nextBlog->slug }}" class="previousNext col-md-12"> --}}
-                        <a href="{{ url('blogs') }}" class="previousNext col-md-12">
-                            <p style="padding: 0px; margin:0px;color: #1463F3"><b>NEXT</b></p>
+                        @if ($nextPost)
+                        <a href="{{ url('blog/details',$nextPost->id) }}" class="previousNext col-md-12">
+                            <p style="padding: 0px; margin:0px;color: var(--background-color);"><b>NEXT</b></p>
                             <p class="nextTextDynamic" style="padding: 0px; margin:0px;">
                                 {{ Str::limit(
-                                    'In the bustling economic landscape of Saudi Arabia,
-                                                    where industries thrive on
-                                                    efficiency and reliability, the significance of maintaining operational
-                                                    continuity
-                                                    cannot be overstated. For decision-makers overseeing the seamless operation of
-                                                    diesel and propane forklifts, generators, and material handling equipment, the
-                                                    allure of Annual Maintenance Contracts (AMC) presents not just a solution but a
-                                                    strategic advantage. This blog delves into the importance of AMCs, spotlighting
-                                                    why leading Saudi businesses are increasingly leaning on these contracts to
-                                                    safeguard their machinery.',
-                                    130,
+                                    $nextPost->title,
+                                    40,
                                 ) }}
                             </p>
                         </a>
-                        {{-- @else --}}
-                        {{-- <a class="previousNext col-sm-12 col-md-12 col-6">
-                  <p style="padding: 0px; margin:0px;"><b>NEXT</b></p>
+                        @else
+                        <a class="previousNext col-sm-12 col-md-12 col-6">
+                  <p style="padding: 0px; margin:0px;color : var(--background-color);"><b>NEXT</b></p>
                   <p class="nextTextDynamic" style="padding: 0px; margin:0px;">No Next Blog</p>
-                </a> --}}
-                        {{-- @endif --}}
+                </a>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        {{-- <div class="row align-items-center justify-content-center">
+            <div class="col-md-2">
+                <div class="pagination">
+                    @if ($previousPost)
+                        <a href="{{ url('blog/details',$previousPost->id) }}" class="btn rounded text-white px-4 mb-2 me-2">Previous</a>
+                    @endif
+
+                    @if ($nextPost)
+                        <a href="{{ url('blog/details',$nextPost->id) }}" class="btn rounded text-white px-4 mb-2">Next</a>
+                    @endif
+                </div>
+            </div>
+        </div> --}}
     </div>
     </div>
 

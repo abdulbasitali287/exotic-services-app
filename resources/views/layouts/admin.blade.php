@@ -24,11 +24,23 @@
     <!-- Main style file -->
     <link rel="stylesheet" href=" {{ asset('admin/dist/css/app.min.css') }} " type="text/css">
 
+    <!-- Font Awesome CDN -->
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     @stack('styles')
+    <style>
+        i{
+            color: #757D7D;
+        }
+        ul li:hover i{
+            color: #FE7A50;
+        }
+    </style>
 </head>
 <body>
     @include('sweetalert::alert')
@@ -86,9 +98,12 @@
             </div>
         </div>
         <ul>
+            @php
+            $currentRouteName = Route::currentRouteName();
+        @endphp
             <li class="menu-divider">E-Commerce</li>
             <li>
-                <a class="active"
+                <a class=""
                    href="{{ url('admin/dashboard') }}">
                     <span class="nav-link-icon">
                         <i class="bi bi-bar-chart"></i>
@@ -97,25 +112,17 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('service.index') }}">
+                <a class="{{ $currentRouteName == 'service.index' ? 'active' : '' }}" href="{{ route('service.index') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa-brands fa-servicestack"></i>
                     </span>
                     <span>MANAGE SERVICES</span>
                 </a>
             </li>
             <li>
-                <a href="{{ route('page.index') }}">
-                    <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
-                    </span>
-                    <span>MANAGE PAGES</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{ route('banner.index') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa fa-image"></i>
                     </span>
                     <span>MANAGE BANNER</span>
                 </a>
@@ -123,15 +130,23 @@
             <li>
                 <a href="{{ route('blog.index') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa fa-edit"></i>
                     </span>
                     <span>MANAGE BLOGS</span>
                 </a>
             </li>
             <li>
+                <a href="{{ route('reviews.index') }}">
+                    <span class="nav-link-icon">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </span>
+                    <span>MANAGE REVIEWS</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('faqs.index') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa fa-question-circle"></i>
                     </span>
                     <span>MANAGE FAQS</span>
                 </a>
@@ -139,7 +154,7 @@
             <li>
                 <a href="{{ route('phone-number.create') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa fa-phone"></i>
                     </span>
                     <span>MANAGE PHONE NUMBER</span>
                 </a>
@@ -147,7 +162,7 @@
             <li>
                 <a href="{{ route('contact-us.index') }}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-heart"></i>
+                        <i class="fa fa-envelope"></i>
                     </span>
                     <span>CONTACT US</span>
                 </a>

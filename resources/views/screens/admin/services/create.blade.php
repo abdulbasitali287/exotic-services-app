@@ -18,19 +18,26 @@
                             @enderror
                         </div>
                         <div class="form-group mb-2">
+                            {{ Form::label('service sub heading', 'Service Sub Heading', ['class' => 'form-label']) }}
+                            {{ Form::text('sub_heading', null ,['class' => 'form-control']) }}
+                            @error('sub_heading')
+                                <span class="mt-2 text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-2">
                             {{ Form::label('Slug', 'Slug', ['class' => 'form-label']) }}
                             {{ Form::text('slug', null ,['class' => 'form-control']) }}
                             @error('slug')
                                 <span class="mt-2 text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-group mb-2">
+                        {{-- <div class="form-group mb-2">
                             {{ Form::label('service type', 'Service Type', ['class' => 'form-label']) }}
                             {{ Form::select('service_type', ['servicing garage' => 'SERVICING GARAGE','bodyshop' => 'BODYSHOP'] , null, ['placeholder' => 'select service type...','class' => 'form-control']) }}
                             @error('service_type')
                                 <span class="mt-2 text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="form-group mb-2">
                             {{ Form::label('navigation name', 'Navigation Name', ['class' => 'form-label']) }}
                             {{ Form::text('navigation_name', null ,['class' => 'form-control']) }}

@@ -4,7 +4,7 @@
         <div class="cotainer">
             <div class="row">
                 <h4>
-                   {{ Str::upper($banner->page->name) }} PAGE BANNER
+                   {{ Str::upper($banner->page) }} PAGE BANNER
                 </h4>
             </div>
             {!! Form::open(['route' => ['banner.update',$banner->id],'files' => true]) !!}

@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'alt_text' => 'required',
-            'banner_image.*' => 'image|mimes:png,jpg,jpeg|max:10240',
+            'banner_image.*' => 'image',
         ];
     }
 
@@ -33,8 +33,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'banner_image.*.image' => 'file must be of type image...!',
-            'banner_image.*.mimes' => 'images must be of type png,jpeg,jpg...!',
-            'banner_image.*.max' => 'image size should be less than 10MB...!',
+            // 'banner_image.*.mimes' => 'images must be of type png,jpeg,jpg...!',
+            // 'banner_image.*.max' => 'image size should be less than 10MB...!',
         ];
     }
 

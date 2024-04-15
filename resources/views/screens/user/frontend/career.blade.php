@@ -7,11 +7,11 @@
     }
     .carousel-control-prev{
         left: -3%;
-        top: -10%;
+        top: -40%;
     }
     .carousel-control-next{
         right: -3%;
-        top: -10%;
+        top: -40%;
     }
     .carousel-control-prev-icon,.carousel-control-next-icon{
 
@@ -163,7 +163,7 @@
             </div>
             <div class="row m-0 p-0">
                 <div class="col m-0 p-0">
-                    <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="widht: 100%;height: 20rem;">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="width: 100%;min-height: 15rem;">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <div>

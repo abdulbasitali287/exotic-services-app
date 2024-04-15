@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="w-100 m-0 p-0">
+    {{-- <div class="w-100 m-0 p-0">
         <div class="cotainer">
             <div class="row pb-3">
                 <div class="d-flex justify-content-between align-items-center">
@@ -39,6 +39,48 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+    </div> --}}
+
+    <div class="row">
+        <div class="col-lg-8 m-auto">
+            <div class="card">
+                <div class="accordion" id="accordionExample">
+                    @forelse ($faqs as $faq)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse{{$loop->iteration}}" aria-expanded="true" aria-controls="collapse1">
+                                    {{ $faq->question }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{$loop->iteration}}" class="accordion-collapse collapse {{ $loop->iteration === 1 ? 'show' : '' }}" aria-labelledby="heading1"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{ $faq->answer }}
+                                </div>
+                                <div class="ps-3 pb-3">
+                                    <a href="{{ route('faqs.edit', $faq->id) }}" class="btn btn-sm btn-light bg-gradient px-3">Edit</a>
+                                    <a href="{{ route('faqs.destroy',$faq->id) }}" class="btn btn-sm btn-danger bg-gradient ms-1" data-confirm-delete="true">DELETE</a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
+                                No Faqs
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body"></div>
+                    </div>
+                    @endforelse
+
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -179,25 +179,45 @@
         </div>
 
         <div class="container mt-5">
-            <div class="row">
+            <div class="row gy-3">
+                @forelse ($services as $service)
+                <div class="col-6 mb-2">
+                    <a href="{{ route('service.details',$service->id) }}" style="text-decoration: none">
+                        <div class="card border-0">
+                            <div class="position-relative">
+                                <img src="{{ $service->getMedia('service_banners')[0]->getUrl('service_banner') }}" class="w-100 rounded-0"
+                                        height="300" alt="sevice image">
+                                <div
+                                    class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
+                                    <p class="fw-bold text-white pb-4 ">{{ Str::limit($service->description, 150, '...') }}</p>
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <p class="card-text fw-bold text-uppercase">{{ $service->navigation_name }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @empty
                 <div class="col-6 mb-2">
                     <div class="card border-0">
                         <div class="position-relative">
-                            <img src="{{ asset('assets/repairing/Machinery-Maintenance-Img.jpg') }}" class="w-100 rounded-0"
-                                height="350px" alt="sevice image">
+                            <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
+                                class="w-100 rounded-0" height="350px" alt="sevice image">
                             <div
-                                class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
-                                <p class="fw-bold text-white pb-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                class="hidden-content tw-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
+                                <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
                                     voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
                             </div>
                         </div>
                         <div class="py-2">
-                            <p class="card-text fw-bold text-uppercase">Repair & Maintenance</p>
+                            <p class="card-text fw-bold text-uppercase">Dummy Service</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 mb-2">
+                @endforelse
+                {{-- <div class="col-6 mb-2">
                     <div class="card border-0">
                         <div class="position-relative">
                             <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
@@ -247,7 +267,7 @@
                             <p class="card-text fw-bold text-uppercase">Steel Fabrication</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -318,9 +338,11 @@
                 <div class="col">
                     <div class="row reviews d-flex justify-content-center main-page__reviews">
                         <div class="col-md-4 col-sm-6 col-12">
-                            <div class="card border border-2 px-2">
-                                <div class="card-body mb-5">
-                                    <img src="{{ asset('assets/comma.png') }}" style="filter: hue-rotate(220deg);" alt="">
+                            <div class="card" style="width: 330px">
+                                <div class="w-100">
+                                    <img src="{{ asset('assets/comma.png') }}" width="120" alt="">
+                                </div>
+                                <div class="px-3 pb-3">
                                     <p class="card-text font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
                                         ipsum
                                         dolor, sit amet consectetur adipisicing elit. Aut odit atque, perferendis tempore,
@@ -331,11 +353,11 @@
                                     </p>
                                     <h5 class="card-title">Test Review</h5>
                                     <div>
-                                        <span class="fa fa-star checked" style="color: #84A4FC;"></span>
-                                        <span class="fa fa-star checked" style="color: #84A4FC;"></span>
-                                        <span class="fa fa-star checked" style="color: #84A4FC;"></span>
-                                        <span class="fa fa-star checked" style="color: #84A4FC;"></span>
-                                        <span class="fa fa-star checked" style="color: #84A4FC;"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
                                     </div>
                                 </div>
                             </div>

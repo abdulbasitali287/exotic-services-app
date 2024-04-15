@@ -25,7 +25,8 @@ class StoreRequest extends FormRequest
         return [
             'service_name' => 'required',
             'slug' => 'required',
-            'service_type' => 'required',
+            // 'service_type' => 'required',
+            'sub_heading' => 'required',
             'navigation_name' => 'required',
             'feature_service' => 'required',
             'text_on_hover' => 'required',
@@ -37,8 +38,9 @@ class StoreRequest extends FormRequest
     public function sanitisedStore() : array {
         return [
             'service_name' => $this->service_name,
+            'sub_heading' => $this->sub_heading,
             'slug' => Str::slug($this->slug),
-            'service_type' => $this->service_type,
+            // 'service_type' => $this->service_type,
             'navigation_name' => $this->navigation_name,
             'feature_service' => $this->feature_service ?? '0',
             'text_on_hover' => $this->text_on_hover,

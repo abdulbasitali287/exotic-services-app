@@ -25,7 +25,7 @@
                     @forelse ($banners as $banner)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $banner->page->name }}</td>
+                            <td>{{ $banner->page }}</td>
                             <td><img src="{{ asset($banner->getFirstMediaUrl('banner_images')) }}" width="100" alt=""></td>
                             <td>{{ Str::limit($banner->title, 30, '...') }}</td>
                             <td>{{ Str::limit($banner->description, 40, '...') }}</td>

@@ -7,6 +7,8 @@ use App\Http\Requests\User\ContactStoreRequest;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Contact;
+use App\Models\Review;
+use App\Models\Service;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,8 +17,10 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $banners = Banner::get();
-        return view('screens.user.welcome',compact('banners'));
+        $banner = Banner::first();
+        $review = Review::first();
+        $services = Service::get();
+        return view('screens.user.welcome',compact('banner','review','services'));
     }
 
     public function blogs(): View
@@ -27,17 +31,28 @@ class HomeController extends Controller
 
     public function blogDetails(Blog $blog): View
     {
-        return view('screens.user.frontend.blogs.blog-detail',compact('blog'));
+        $previousPost = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+        $nextPost = Blog::where('id', '>', $blog->id)->orderBy('id')->first();
+        return view('screens.user.frontend.blogs.blog-detail',compact('blog', 'previousPost', 'nextPost'));
     }
 
     public function contactStore(ContactStoreRequest $request)
     {
         if (Contact::create($request->sanitisedStore())) {
-            Alert::success('successfully submitted...!');
+            toast('Submission received!...!','success');
             return back();
         }else {
             toast('not submitted...!','error');
             return back();
         }
+    }
+
+    public function services() : View {
+        $services = Service::get();
+        return view('screens.user.frontend.services.services',compact('services'));
+    }
+
+    public function serviceDetails(Service $service){
+        return view('screens.user.frontend.services.service-details',compact('service'));
     }
 }

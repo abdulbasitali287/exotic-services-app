@@ -6,11 +6,11 @@
     }
     .carousel-control-prev{
         left: -3%;
-        top: -10%;
+        top: -30%;
     }
     .carousel-control-next{
         right: -3%;
-        top: -10%;
+        top: -30%;
     }
     .carousel-control-prev-icon,.carousel-control-next-icon{
 
@@ -73,82 +73,109 @@
         </div>
         <div class="row m-0 p-0">
             <div class="col m-0 p-0">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="widht: 100%;height: 20rem;">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="widht: 100%;height: 37rem;">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <div>
-                            <h5 class="display-5 fw-bold text-uppercase fw-bold">Construction</h5>
-                            <p class="text-muted" style="text-align: justify;">
-                                In the dynamic and demanding construction industry, the reliability of machinery
-                                and equipment is non-negotiable. From towering cranes to heavy-duty loaders,
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('assets/banners/EH_Digital_Solutions_3.5e3b1daf80c81-680x365_c.png') }}" class="img-fluid w-100" style="object-fit: cover;" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <h5 class="display-5 fw-bold text-uppercase fw-bold">Construction</h5>
+                                    <p class="text-muted" style="text-align: justify;">
+                                        In the dynamic and demanding construction industry, the reliability of machinery
+                                        and equipment is non-negotiable. From towering cranes to heavy-duty loaders,
 
-                                each piece of equipment plays a pivotal role in project timelines and overall
-                                success. Saudi Industrial Support Services offers specialized maintenance and
-                                repair solutions that ensure your construction machinery is operating at peak
-                                efficiency, minimizing downtime and enhancing safety on-site. Our proactive
-                                approach helps construction companies meet their project deadlines with
-                                confidence, ensuring that every component functions flawlessly.
-                            </p>
+                                        each piece of equipment plays a pivotal role in project timelines and overall
+                                        success. Saudi Industrial Support Services offers specialized maintenance and
+                                        repair solutions that ensure your construction machinery is operating at peak
+                                        efficiency, minimizing downtime and enhancing safety on-site. Our proactive
+                                        approach helps construction companies meet their project deadlines with
+                                        confidence, ensuring that every component functions flawlessly.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                       </div>
                       <div class="carousel-item">
-                        <div>
-                            <h5 class="display-5 fw-bold text-uppercase fw-bold">Manufacturing</h5>
-                            <p class="text-muted" style="text-align: justify;">
-                                The manufacturing sector thrives on precision, efficiency, and reliability. A minor
-                                disruption can lead to significant delays, affecting production lines and impacting
-                                delivery schedules. Recognizing the critical nature of continuous operation, we
-                                provide specialized services for the repair and maintenance of material handling
-                                equipment and diesel generators, ensuring that manufacturing facilities run
-                                smoothly. Our team of experts is adept at diagnosing and resolving issues
-                                swiftly, ensuring that your operations are back online with minimal delay. By
-                                partnering with us, manufacturing businesses can focus on their core activities,
-                                knowing their equipment maintenance is in expert hands.
-                            </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('assets/industries-served/manufacturing.jpg') }}" class="img-fluid w-100" style="bject-fit: cover;" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <h5 class="display-5 fw-bold text-uppercase fw-bold">Manufacturing</h5>
+                                    <p class="text-muted" style="text-align: justify;">
+                                        The manufacturing sector thrives on precision, efficiency, and reliability. A minor
+                                        disruption can lead to significant delays, affecting production lines and impacting
+                                        delivery schedules. Recognizing the critical nature of continuous operation, we
+                                        provide specialized services for the repair and maintenance of material handling
+                                        equipment and diesel generators, ensuring that manufacturing facilities run
+                                        smoothly. Our team of experts is adept at diagnosing and resolving issues
+                                        swiftly, ensuring that your operations are back online with minimal delay. By
+                                        partnering with us, manufacturing businesses can focus on their core activities,
+                                        knowing their equipment maintenance is in expert hands.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                       </div>
                       <div class="carousel-item">
-                        <div>
-                            <h5 class="display-5 fw-bold text-uppercase fw-bold">Warehousing</h5>
-                            <p class="text-muted" style="text-align: justify;">
-                                Warehousing operations demand high efficiency and reliability, where material
-                                handling equipment like forklifts, pallet jacks, and conveyor systems are the
-                                backbone of daily activities. Our services ensure that these essential tools are
-                                maintained to the highest standards, reducing the risk of unexpected failures that
-                                can disrupt logistics and inventory management. Saudi Industrial Support
-                                Services understands the importance of swift, effective maintenance to keep
-                                warehousing operations agile and responsive to market demands, enhancing
-                                your capacity to deliver exceptional service to your clients.
-                            </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('assets/banners/blogs.jpg') }}" class="img-fluid w-100" style="height:350px;object-fit: cover;" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <h5 class="display-5 fw-bold text-uppercase fw-bold">Warehousing</h5>
+                                    <p class="text-muted" style="text-align: justify;">
+                                        Warehousing operations demand high efficiency and reliability, where material
+                                        handling equipment like forklifts, pallet jacks, and conveyor systems are the
+                                        backbone of daily activities. Our services ensure that these essential tools are
+                                        maintained to the highest standards, reducing the risk of unexpected failures that
+                                        can disrupt logistics and inventory management. Saudi Industrial Support
+                                        Services understands the importance of swift, effective maintenance to keep
+                                        warehousing operations agile and responsive to market demands, enhancing
+                                        your capacity to deliver exceptional service to your clients.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                       </div>
                       <div class="carousel-item">
-                        <div>
-                            <h5 class="display-5 fw-bold text-uppercase fw-bold">Ports Operations</h5>
-                            <p class="text-muted" style="text-align: justify;">
-                                Ports are critical hubs of commerce, where seamless operations are vital for the
-                                timely loading and unloading of cargo, directly impacting the supply chain. The
-                                equipment used in port operations, from container handlers to bulk material
-                                movers, requires regular, specialized maintenance to handle the rigorous
-                                demands of continuous operation. Our comprehensive maintenance and repair
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('assets/banners/abt-img.jpg') }}" class="img-fluid w-100" style="object-fit: cover;" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <h5 class="display-5 fw-bold text-uppercase fw-bold">Ports Operations</h5>
+                                    <p class="text-muted" style="text-align: justify;">
+                                        Ports are critical hubs of commerce, where seamless operations are vital for the
+                                        timely loading and unloading of cargo, directly impacting the supply chain. The
+                                        equipment used in port operations, from container handlers to bulk material
+                                        movers, requires regular, specialized maintenance to handle the rigorous
+                                        demands of continuous operation. Our comprehensive maintenance and repair
 
-                                services for diesel generators and material handling equipment ensure that port
-                                operations can proceed without interruption, supporting the flow of goods and
-                                bolstering the economy.
-                                <br>
-                                Our commitment extends across the vital sectors of construction, manufacturing,
-                                warehousing, and ports operations. We understand the intricacies and
-                                challenges of each industry, offering tailored solutions that ensure operational
-                                continuity, safety, and efficiency. Our dedicated team of professionals uses their
-                                expertise to provide reliable support, helping your business overcome the
-                                challenges of maintaining complex machinery and equipment. Partner with us to
-                                empower your operations, and experience the peace of mind that comes with
-                                knowing your industrial support needs are met with excellence and dedication.
-                            </p>
+                                        services for diesel generators and material handling equipment ensure that port
+                                        operations can proceed without interruption, supporting the flow of goods and
+                                        bolstering the economy.
+                                        <br>
+                                        Our commitment extends across the vital sectors of construction, manufacturing,
+                                        warehousing, and ports operations. We understand the intricacies and
+                                        challenges of each industry, offering tailored solutions that ensure operational
+                                        continuity, safety, and efficiency. Our dedicated team of professionals uses their
+                                        expertise to provide reliable support, helping your business overcome the
+                                        challenges of maintaining complex machinery and equipment. Partner with us to
+                                        empower your operations, and experience the peace of mind that comes with
+                                        knowing your industrial support needs are met with excellence and dedication.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-
                       </div>
                     </div>
                     <button class="carousel-control-prev position-absolute m-0 p-0" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

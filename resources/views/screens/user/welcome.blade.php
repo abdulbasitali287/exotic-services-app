@@ -98,11 +98,27 @@
     #services .card:hover .hidden-content {
         opacity: 0.8;
     }
+    button.btn{
+        font-size: 15px !important;
+                    font-weight: 500 !important;
+                    text-transform: uppercase !important;
+                    line-height: 1.56em !important;
+                    letter-spacing: 2px !important;
+                font-family: poppins, Sans-serif !important;
+                background-color: var(--background-color)!important;
+    }
+    button.btn:hover{
+        background-color: var(--hover-background-color)!important;
+        color: #fff!important;
+    }
 </style>
 @section('content')
     {{-- banner section --}}
+    @foreach ($bannersData as $banner)
+    @if ($banner->page === "home")
     <section class="py-5"
-        style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/banners/unnamed.jpg');background-size: cover; /* or contain, or specific dimensions */background-position: right;background-repeat: no-repeat;">
+        style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}');background-size: cover;background-position: right;background-repeat: no-repeat;"
+        >
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-7">
@@ -116,7 +132,7 @@
                         text-transform: uppercase !important;
                         line-height: 1.56em !important;
                         letter-spacing: 2px !important;
-                    font-family: poppins, Sans-serif !important;">
+                        font-family: poppins, Sans-serif !important;">
                             Our Services <i class="fas fa-arrow-right ps-2 text-white"></i>
                         </a>
                     </div>
@@ -124,6 +140,8 @@
             </div>
         </div>
     </section>
+    @endif
+    @endforeach
 
     <section class="py-5" style="background-color: #1D2023 ">
         <div class="container">
@@ -157,8 +175,8 @@
                         text-transform: uppercase !important;
                         line-height: 1.56em !important;
                         letter-spacing: 2px !important;
-                    font-family: poppins, Sans-serif !important;">Explore
-                            Our Services <i class="fas fa-arrow-right ps-2 text-white"></i></a>
+                        font-family: poppins, Sans-serif !important;">Explore
+                            Our Services <i class="fas fa-arrow-right ps-2 text-dark"></i></a>
                     </div>
                 </div>
             </div>
@@ -170,14 +188,53 @@
             <div class="row mt-5">
                 <div class="col main-page__services">
                     <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
-                    <a href="{{ route('services') }}" class="text-dark anchor_text">VIEW ALL SERVICES</a>
+                    <a href="#" class="text-dark anchor_text">VIEW ALL SERVICES</a>
                 </div>
             </div>
         </div>
 
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-6 mb-2">
+            <div class="row gy-3">
+                @forelse ($services as $service)
+                    <div class="col-6 mb-2">
+                        <a href="{{ route('service.details', $service->id) }}" style="text-decoration: none">
+                            <div class="card border-0">
+                                <div class="position-relative">
+                                    <img src="{{ $service->getMedia('service_banners')[0]->getUrl('service_banner') }}" class="w-100 rounded-0"
+                                        height="300" alt="sevice image">
+                                    <div
+                                        class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
+                                        <p class="fw-bold text-white pb-4 ">
+                                            {{ Str::limit($service->description, 150, '...') }}</p>
+                                    </div>
+                                </div>
+                                <div class="py-2">
+                                    <p class="card-text fw-bold text-uppercase">{{ $service->navigation_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+                    <div class="col-6 mb-2">
+                        <div class="card border-0">
+                            <div class="position-relative">
+                                <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
+                                    class="w-100 rounded-0" height="350px" alt="sevice image">
+                                <div
+                                    class="hidden-content tw-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
+                                    <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit.
+                                        Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
+                                        voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <p class="card-text fw-bold text-uppercase">Dummy Service</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforelse
+                {{-- <div class="col-lg-6 mb-2">
                     <div class="card border-0">
                         <div class="position-relative">
                             <img src="{{ asset('assets/repairing/Machinery-Maintenance-Img.jpg') }}" class="w-100 rounded-0"
@@ -244,7 +301,7 @@
                             <p class="card-text fw-bold text-uppercase">Steel Fabrication</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -257,12 +314,12 @@
                     <img src="{{ asset('assets/home-big-image.jpg') }}" alt="" class="img-fluid w-100 book-an__appt"
                         style="height: 600px;!important;object-fit:cover">
                     <div class="position-absolute top-50 start-50 translate-middle book-an__apptBtn">
-                        <a href="#" class="btn btn-dark fs-6 border-0 rounded-circle round_button"
+                        <a href="#" class="btn btn-dark text-white fs-6 border-0 rounded-circle round_button"
                             style="font-size: 15px !important;
                         font-weight: bold !important;
                         text-transform: uppercase !important;
                     font-family: poppins, Sans-serif !important;
-                    background: #CCD0D8;color: #1d1c1c;">
+                    background: var(--background-color-three);color: #1d1c1c;">
                             BOOK OUR <i class="fas fa-arrow-right ps-2"></i><br> SERVICES
                         </a>
                     </div>
@@ -281,15 +338,14 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="row reviews d-flex justify-content-center px-5 main-page__reviews">
+                    <div class="row reviews d-flex justify-content-center main-page__reviews">
                         <div class="col-md-4 col-sm-6 col-12">
-                            <div class="card border border-2">
-                                <div class="card-body mb-5">
-                                    <?xml version="1.0" encoding="UTF-8"?>
-                                    <?xml version="1.0" encoding="UTF-8"?><svg width="100px" height="100px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M10 12H5C4.44772 12 4 11.5523 4 11V7.5C4 6.94772 4.44772 6.5 5 6.5H9C9.55228 6.5 10 6.94772 10 7.5V12ZM10 12C10 14.5 9 16 6 17.5" stroke="var(--background-color)" stroke-width="1.5" stroke-linecap="round"></path><path d="M20 12H15C14.4477 12 14 11.5523 14 11V7.5C14 6.94772 14.4477 6.5 15 6.5H19C19.5523 6.5 20 6.94772 20 7.5V12ZM20 12C20 14.5 19 16 16 17.5" stroke="var(--background-color)" stroke-width="1.5" stroke-linecap="round"></path></svg>
-                                    {{-- <img src="{{ asset('assets/comma.png') }}" style="filter: hue-rotate(199deg);" alt=""> --}}
-                                    {{-- <img src="{{ asset('assets/comma.png') }}" style="filter: hue-rotate(220deg);" alt=""> --}}
-                                    <p class="card-text font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
+                            <div class="card" style="width: 330px">
+                                <div class="w-100">
+                                    <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
+                                </div>
+                                <div class="px-3 pb-3">
+                                    <p class="card-text d-block border-bottom font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
                                         ipsum
                                         dolor, sit amet consectetur adipisicing elit. Aut odit atque, perferendis tempore,
                                         soluta sunt aperiam voluptatibus, illo velit ullam facere ad autem numquam! Unde
@@ -299,11 +355,11 @@
                                     </p>
                                     <h5 class="card-title">Test Review</h5>
                                     <div>
-                                        <span class="fa fa-star checked" style="color: var(--background-color);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
                                     </div>
                                 </div>
                             </div>
@@ -319,56 +375,57 @@
         </div>
     </section>
 
-    <div class="container-fluid" id="appointment" style="background-color: #1D2023 !important">
-        <div class="row mt-5">
+    <div class="container-fluid" id="appointment" >
+        <div class="row">
             <div class="col-12 pt-5">
                 <div class="w-25 ps-4 main-page__getApp">
-                    <h1 class="text-white display-5 fw-bold py-5 font_heading">GET <span style="color: var(--background-color);">IN</span>
+                    <h1 class="text-dark display-5 fw-bold py-5 font_heading">GET <span
+                            style="color: var(--background-color-two);">IN</span>
                         TOUCH</h1>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <form>
-                    <div class="d-flex justify-content-around flex-wrap ms-3 my-new__form">
+                {!! Form::open(['route' => 'contact-us.store']) !!}
+                    <div class="d-flex justify-content-around flex-wrap my-new__form">
                         <div class="mb-5 form-div" style="width: 25%">
-                            <label for="name" class="form-label fs-6 font" style="color: #645f5f;">Name</label>
+                            <label for="name" class="form-label fs-6 font">Name</label>
                             <input type="name" name="name" class="form-control header1" id="name"
                                 style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;">
-                            <div class="text-danger"></div>
+                                @error('name')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="mb-5 form-div" style="width: 25%">
-                            <label for="phone" class="form-label fs-6 font" style="color: #645f5f;">Phone</label>
+                            <label for="phone" class="form-label fs-6 font">Phone</label>
                             <input type="tel" name="phone" class="form-control header1" id="phone"
                                 style="color: #adacac; border: none; border-bottom: 1px solid white; border-radius: 0;">
-                            <div class="text-danger"></div>
+                                @error('phone')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
                         </div>
 
                         <div class="mb-5 form-div" style="width: 40%">
-                            <label for="email" class="form-label fs-6 font" style="color: #645f5f;">Email</label>
+                            <label for="email" class="form-label fs-6 font">Email</label>
                             <input type="email" name="email" class="form-control header1" id="email"
-                                aria-describedby="emailHelp"
                                 style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;">
-                            <div class="text-danger"></div>
+                                @error('email')
+                                    <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
                         </div>
                         <div class="mb-5 form-div" style="width: 97%">
-                            <label for="Textarea" class="form-label fs-6 ps-0 font" style="color: #645f5f;">
+                            <label for="Textarea" class="form-label fs-6 ps-0 font">
                                 Description</label>
                             <textarea class="form-control header1" name="description" placeholder="Leave a comment here" id="description"
                                 style="color: #adacac;border: none; border-bottom: 1px solid white; border-radius: 0;"></textarea>
-                            <div class="text-danger"></div>
+                                @error('description')
+                                <span class="text-danger my-2">{{ $message }}</span>
+                                @enderror
                         </div>
                     </div>
-                    <a class="btn btn-dark border-0 rounded-0 px-4 py-3 ms-4 mb-5 fs-5"
-                        style="font-size: 15px !important;
-                    font-weight: 500 !important;
-                    text-transform: uppercase !important;
-                    line-height: 1.56em !important;
-                    letter-spacing: 2px !important;
-                font-family: poppins, Sans-serif !important;"
-                        type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></a>
-                </form>
+                    <button class="btn text-white border-0 rounded-0 px-4 py-3 ms-4 mb-5 fs-5" type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></button>
+                    {!! Form::close() !!}
                 <div class="alert alert-success mt-3 d-none" id="successMessage">
                     Thankyou For Contacting Us!!
                 </div>
