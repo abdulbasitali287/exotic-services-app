@@ -37,8 +37,8 @@
             <div class="contact-us__servicesAll">
             <div class="ps-4 ms-2 contact-us__services">
             <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">{{ isset($getNo->phone_number) }}</span></span></i></a>
-            <p class="font ps-1 mb-0 mt-3" style="color: #777777; font-size: 14px!important;">MSM 1 Building Al Safa First Sheikh Zayed Road, Dubai, UAE </p>
-            <p class="font ps-1" style="color: #777777; font-size: 14px!important;">SERVICE@EMAIL.COM </p>
+            <p class="font ps-1 mb-0 mt-3" style="color: #777777; font-size: 14px!important;">Industrial Area , Al Jubail Saudi Arabia, 0000</p>
+            {{-- <p class="font ps-1" style="color: #777777; font-size: 14px!important;">SERVICE@EMAIL.COM </p> --}}
             </div>
             <div class="ps-4 ms-2 contact-us__services">
             <a href="#"><i class="fas fa-car text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">HOURS OF OPERATION</span></span></i></a>
@@ -186,7 +186,8 @@
     <div class="row p-0 m-0" id="map">
         <div class="col-md-12 p-0 m-0 map-height">
             {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d193618.79052890756!2d-74.174462!3d40.689531!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c252e1c5ec0cef%3A0xb3f3b437c5d7f286!2sNewark%20Liberty%20International%20Airport!5e0!3m2!1sen!2sus!4v1699276933676!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0983937807105!2d55.230552688854985!3d25.16615530000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f692e8914a2dd%3A0x2121b385b463b601!2sMSM%201%20Building!5e0!3m2!1sen!2s!4v1700227578789!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0983937807105!2d55.230552688854985!3d25.16615530000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f692e8914a2dd%3A0x2121b385b463b601!2sMSM%201%20Building!5e0!3m2!1sen!2s!4v1700227578789!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118185.15476835213!2d49.51088573226467!3d27.037500940208666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e350855b66fd67b%3A0x3f02dd8f60d2d900!2sIndustrial%20Area%2C%20Al%20Jubail%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1713187952383!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 

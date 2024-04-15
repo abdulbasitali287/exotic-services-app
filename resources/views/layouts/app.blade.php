@@ -416,7 +416,7 @@
                     {{-- <li class="footer fw-bold fs-5">SHOWROOM LOCATION</li> --}}
                     <li><i class="fa-solid fa-location-dot text-white">
                         </i>
-                        <span class="footer header1 text-wrap fw-normal m-2">abc Location
+                        <span class="footer header1 text-wrap fw-normal m-2">Industrial Area , Al Jubail Saudi Arabia, 0000
                         </span>
                     </li>
                     <li><i class="fa-solid fa-envelope text-white"></i><span
