@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
             'feature_service' => 'required',
             'text_on_hover' => 'required',
             'service_banner' => 'required|file|mimes:png,jpg,jpeg,webp',
-            'description' => 'required|string|max:500',
+            'description' => 'required',
         ];
     }
 

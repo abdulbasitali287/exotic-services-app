@@ -136,7 +136,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                {!! Form::open(['route' => 'contact-us.store']) !!}
+                {!! Form::open(['route' => 'contact-us.store','autocomplete' => 'off']) !!}
                     <div class="d-flex justify-content-around flex-wrap my-new__form">
                         <div class="mb-5 form-div" style="width: 25%">
                             <label for="name" class="form-label fs-6 font">Name</label>

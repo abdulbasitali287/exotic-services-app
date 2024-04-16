@@ -26,7 +26,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $banner->page }}</td>
-                            <td><img src="{{ asset($banner->getFirstMediaUrl('banner_images')) }}" width="100" alt=""></td>
+                            <td><img src="{{ asset($banner->getFirstMediaUrl('banner_images')) }}" class="img-thumbnail" alt="{{ $banner->alt_text }}"></td>
                             <td>{{ Str::limit($banner->title, 30, '...') }}</td>
                             <td>{{ Str::limit($banner->description, 40, '...') }}</td>
                             <td class="d-flex">

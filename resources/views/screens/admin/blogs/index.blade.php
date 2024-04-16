@@ -1,6 +1,18 @@
 @extends('layouts.admin')
+@push('styles')
+    <style>
+        /* .details-content {
+            width: 100%;
+            max-height: 200px;
+        overflow-y: scroll;
+    } */
+    .table td {
+        white-space: wrap;
+    }
+    </style>
+@endpush
 @section('content')
-    <div class="w-100 m-0 p-0">
+    <div class="">
         <div class="cotainer">
             <div class="row pb-3">
                 <div class="d-flex justify-content-between align-items-center">
@@ -13,6 +25,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>SNO</th>
                         <th>TITLE</th>
                         <th>PUBLISHED</th>
@@ -23,48 +36,35 @@
                 <tbody>
                     @forelse ($blogs as $blog)
                         <tr>
-                            {{-- <th class="text-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" style="width: 20;color: #5f5b5b;">
-                                <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
-                              </svg></th> --}}
-                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td class="text-center">
+                                  <i class="fa-solid fa-angle-down details-btn me-1 fs-5 fw-bold text-danger d-block" style="cursor: pointer"></i>
+                            </td>
+                            <td scope="row">{{ $loop->iteration }}</td>
                             <td>{{ Str::limit($blog->title, 30, '...') }}</td>
                             <td>{!! $blog->status
                                 ? "<span class='btn btn-success btn-sm'>YES</span>"
                                 : "<span class='btn btn-danger btn-sm'>NO</span>" !!}</td>
-                            <td><img src="{{ asset($blog->getFirstMediaUrl('blog_images')) }}" class="rounded" width="100"
+                            <td><img src="{{ asset($blog->getFirstMediaUrl('blog_images')) }}" class="rounded" width="100px" height="60px" style="object-fit: cover"
                                     alt="{{ $blog->alt_text }}"></td>
                             <td class="d-flex">
-                                <button type="button" class="btn btn-sm btn-success me-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Show
-                                  </button>
                                 <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-info p-2">Edit</a>
                                 <a href="{{ route('blog.destroy',$blog->id) }}" class="btn btn-sm btn-danger p-2 ms-1" data-confirm-delete="true">DELETE</a>
                             </td>
                         </tr>
-                        {{-- modal --}}
-                        <!-- Button trigger modal -->
-
-                        <!-- Modal -->
-                        <div class="modal modal-dialog-scrollable fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h2 class="modal-title fs-5" id="exampleModalLabel">{{ $blog->title }}</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        {!! $blog->body !!}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <tr class="details-row" style="display: none;">
+                            <td colspan="6">
+                                <!-- Additional details here -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="" id="blogBody" style="height: 400px;overflow-y: scroll;">
+                                                {!! $blog->body !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </td>
+                        </tr>
                     @empty
                         <tr>
                             <td>
@@ -76,4 +76,18 @@
             </table>
         </div>
     </div>
+    @push('scripts')
+    <script>
+        $(document).ready(function() {
+            // $('#blogBody').css({'display':'flex','flex-wrap':'wrap'});
+            $('#blogBody strong').css('text-transform', 'uppercase');
+            $('#blogBody p').css({'color': '#777777','font-size': '16px!important','text-align':'justify'});
+            $('#blogBody br').remove();
+
+            $(".details-btn").click(function() {
+                $(this).closest("tr").next(".details-row").toggle(400);
+            });
+        });
+    </script>
+    @endpush
 @endsection

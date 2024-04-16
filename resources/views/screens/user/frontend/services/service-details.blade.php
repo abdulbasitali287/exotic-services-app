@@ -109,8 +109,8 @@
             <div class="row">
                 <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
                     @if (Route::has('service.details'))
-                    <img src="{{ $service->getMedia('service_banners')[0]->getUrl('service_banner') }}" class="w-75 rounded-0"
-                                        height="300" alt="sevice image">
+                    <img src="{{ $service->getFirstMediaUrl('service_banners') }}" class="w-75 rounded-0"
+                                        alt="sevice image" style="object-fit: cover;">
                     @else
                     <img src="{{ asset('assets/repairing/Diesel-Fuel-Common-Rail-Injector-Testing-Equipment-Test-Bench.jpg') }}"
                         alt="" class="w-75">
@@ -150,21 +150,53 @@
                     </div>
                 </div>
             </div>
-            <div class="row mb-5">
-                <div class="col">
-                    <p class="font mt-5" style="color: #777777; font-size: 16px!important;text-align:justify;">
-                       {{ $service->description }}
-                    </p>
+            <div class="row">
+                <div class="col pb-4">
+                    {{-- <p class="pt-3 font" style="color: #777777!important; font-size: 16px!important;text-align:justify;">
+                    </p> --}}
+                    <div id="blogBody">
+                        {!! $service->description !!}
+                    </div>
                 </div>
             </div>
+            {{-- <div class="row pb-3">
+                <div class="col">
+                    <h1 class="text-black mb-2 display-5 fw-bold font_heading text-uppercase"
+                    style="font-weight: 700 !important;">FORKLIFT REBUILDS AND REFURBISHMENT SERVICES</h1>
+                    <p class="font" style="color: #777777; font-size: 16px!important;text-align:justify;">In today's economy, it can be difficult to fit the purchase of a new piece of
+                        equipment into your budget. If you're not interested in selling your forklift or
+                        moving to a rental, why not consider refurbishing your forklift? When you own an
+                        old forklift with a stronger structure, it can definitely pay to perform a forklift
+                        rebuild. A rebuild may not always be the best choice over buying a new piece of
+                        equipment, but it's always worth looking into.
+                        <span class="d-block py-2">
+                            Consider the following advantages of refurbishment before deciding on your next course of action.
+                        </span>
+                        <span class="d-block py-1">
+                            The advantages of rebuilding your forklift
+                        </span>
+                    </p>
+                    <h1 class="text-black mb-2 display-5 fw-bold font_heading text-uppercase"
+                    style="font-weight: 700 !important;">Cost Savings</h1>
+                    <p class="font" style="color: #777777; font-size: 16px!important;text-align:justify;">When purchasing new equipment, it can be difficult to gain approval for a large
+                        capital expense. That’s why it’s never a bad idea to weigh the pros and cons of
+                        refurbishing your existing equipment. By doing so, you may be able to save
+                        anywhere from 30-40% of the purchase price. In addition to these initial savings,
+                        you’ll also see savings over time for replacement parts as older components tend
+                        to cost 25-30% less than newer components. Though there are undeniable cost
+                        savings for some larger units, these savings may vary for smaller pieces of
+                        equipment. That’s why we’re here to help with expert advice, helping you
+                        determine the best choice for your equipment, needs, and budget.</p>
+                </div>
+            </div> --}}
         </div>
     </section>
 
     <div class="header1_">
-        <div class="row p-0 m-0 pb-5 newBigScreenServices1">
-            <div class="col mt-5 ps-5 mb-5 services-forAll">
+        <div class="row p-0 m-0 newBigScreenServices1">
+            <div class="col ps-5 services-forAll">
                 <h1 class="text-white display-5 fw-bold font_heading mt-5">SERVICES AT SAUDI INDUSTRIAL </h1>
-                <div class="row ms-3 mb-5">
+                <div class="row ms-3">
                     <div class="col-11 p-3 ps-4 pb-0 mt-4 font services-forAllCol"
                         style="color:#a9a8a8; font-size: 17px !important; border-left: 2px solid #a9a8a8;text-align: justify;">
                         <p>
@@ -222,4 +254,15 @@
             <p style="border-bottom: 1.5px solid black;" class="mt-5 ms-5 me-5"></p>
         </div>
     </div>
+    @push('js')
+    <script>
+        $(document).ready(function() {
+            // body content jquery
+            $('#blogBody strong').css('text-transform', 'uppercase');
+            $('#blogBody p').css({'color': '#777777','font-size': '16px!important','text-align':'justify'});
+            $('#blogBody br').remove();
+        });
+    </script>
+
+    @endpush
 @endsection

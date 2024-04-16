@@ -19,8 +19,8 @@
                             @enderror
                         </div>
                         <div class="form-group mb-2">
-                            {{ Form::label('description', 'Description', ['class' => 'form-label']) }}
-                            {{ Form::textarea('description', old('description',$banner->description) ,['class' => 'form-control']) }}
+                            {{ Form::label('other text', 'Other Text', ['class' => 'form-label']) }}
+                            {{ Form::textarea('description', old('description',$banner->description) ,['class' => 'form-control','rows' => 3]) }}
                             @error('description')
                                 <span class="mt-2 text-danger">{{ $message }}</span>
                             @enderror

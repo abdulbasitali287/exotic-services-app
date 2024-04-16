@@ -98,8 +98,7 @@
                             NOW {{ isset($phNo->phone_number) }}&nbsp;&nbsp;</span><span
                             class="fw-normal fs-4">|</span></i></a>
                 <a href="{{ route('contact_us') }}"><i class="fa fa-calendar-o text-dark mx-3 mt-3"><span
-                            class="text-dark fw-normal m-3">GET FREE
-                            APPOINTMENT&nbsp;&nbsp;</span></span><span class="fw-normal fs-4">|</span></i></a>
+                            class="text-dark fw-normal text-uppercase m-3">Schedule inspection visit &nbsp;&nbsp;</span></span><span class="fw-normal fs-4">|</span></i></a>
                 <a href="/contact-us#map"><i class="fa-solid fa-location-dot text-dark mx-3 mt-3"><span
                             class="text-dark fw-normal m-3">FIND US
                             ON MAP&nbsp;&nbsp;</span></i></a>
@@ -535,6 +534,7 @@
     </script>
 
     @yield('js')
+
     @stack('js')
 
 

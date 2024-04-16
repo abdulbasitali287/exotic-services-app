@@ -120,16 +120,22 @@
 @section('content')
     <section>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
-                    <img src="{{ asset('assets/banners/view-all-services.jpg') }}" alt="" class="w-75">
-                </div>
-                <div class="col w-50 z-0 position-absolute bg-white align-self-end ps-5 pb-5 contact-us_bannerTxt">
-                    <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">WE PRIDE OURSELVES IN PROVIDING EXCELLENT
-                        SERVICE</p>
-                    <h1 class="text-black display-3 fw-bold font_heading_banner m-0 pt-4 pb-4">SERVICES</h1>
-                </div>
+            @foreach ($bannersData as $banner)
+        @if ($banner->page === "services")
+        <div class="row p-0 m-0">
+            <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
+                {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
+                <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
+            <div
+                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+                </p>
+                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
+            </div>
+        </div>
+        @endif
+        @endforeach
         </div>
     </section>
 
@@ -189,7 +195,8 @@
                                         height="300" alt="sevice image">
                                 <div
                                     class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
-                                    <p class="fw-bold text-white pb-4 ">{{ Str::limit($service->description, 150, '...') }}</p>
+                                    <p class="fw-bold text-white pb-4 ">{!! Str::limit('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur asperiores cupiditate error laboriosam expedita reprehenderit culpa aperiam consequuntur, autem, eius iste, eum veritatis blanditiis fugit nesciunt sit quaerat. Porro aliquam expedita magnam officiis. Explicabo delectus nisi fugit quod tempora, sed dolor veritatis nulla nihil minima at id suscipit quo sapiente minus iure tenetur illo eligendi harum assumenda magnam aspernatur aliquam eius. Est, dolores error! Eligendi in eaque repellendus illum quaerat unde nam tempora reprehenderit possimus. Ullam magnam asperiores incidunt consequatur. Vero pariatur consequatur aperiam harum fugit quidem explicabo distinctio deserunt odit, doloremque, reprehenderit velit fugiat, illo tempore aliquid eos excepturi eligendi culpa labore! Enim perspiciatis nesciunt ut velit, omnis, dolores sapiente eligendi, aspernatur libero cum maxime dolore. Quisquam sint necessitatibus in architecto nam itaque, porro facilis asperiores saepe dolorum minima dolor molestias aliquam, sed esse numquam! Dolorem quae magni debitis odit id. Rerum laboriosam earum asperiores, perferendis consequatur ipsam!', 150, '...') !!}</p>
+                                    {{-- <p class="fw-bold text-white pb-4 ">{!! Str::limit($service->description, 150, '...') !!}</p> --}}
                                 </div>
                             </div>
                             <div class="py-2">
