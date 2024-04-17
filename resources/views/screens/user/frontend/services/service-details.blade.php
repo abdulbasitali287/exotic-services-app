@@ -129,8 +129,8 @@
         <div class="container p-0">
             <div class="row pt-4">
                 <div class="col-md-6 p-0">
-                    <h1 class="text-black display-5 fw-bold font_heading text-uppercase"
-                        style="font-weight: 700 !important;">{{ $service->sub_heading }}</h1>
+                    <h1 class="text-black fw-bold text-uppercase"
+                        style="font-weight: 700 !important;font-size:35px;">{{ $service->sub_heading }}</h1>
                 </div>
                 <div class="col-md-6 p-0 px-5">
                     <div class="services-sec mt-0">
@@ -151,10 +151,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col pb-4">
-                    {{-- <p class="pt-3 font" style="color: #777777!important; font-size: 16px!important;text-align:justify;">
-                    </p> --}}
-                    <div id="blogBody">
+                <div class="col py-4">
+                    <div id="blogBody" style="color: #777777;font-size: 16px!important;text-align: justify;">
                         {!! $service->description !!}
                     </div>
                 </div>
@@ -258,7 +256,7 @@
     <script>
         $(document).ready(function() {
             // body content jquery
-            $('#blogBody strong').css('text-transform', 'uppercase');
+            $('#blogBody strong').css({'text-transform':'uppercase','font-size':'30px','color':'#000'});
             $('#blogBody p').css({'color': '#777777','font-size': '16px!important','text-align':'justify'});
             $('#blogBody br').remove();
         });

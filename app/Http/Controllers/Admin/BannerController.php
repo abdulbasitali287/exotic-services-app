@@ -13,12 +13,35 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BannerController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
         $title = 'Delete Banner!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('screens.admin.banners.index', ['banners' => Banner::orderBy('id', 'desc')->get()]);
+        $query = Banner::query();
+        if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
+            $banners = $query->where('title', 'like', "%$request->search%")->paginate();
+        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $banners = $query->where('title', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate();
+        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $banners = $query->where('title', 'like', "%$request->search%")
+                ->paginate($request->sort);
+        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $banners = $query->order($request->order)->paginate();
+        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $banners = $query->order($request->order)->paginate($request->sort);
+        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $banners = $query->paginate($request->sort);
+        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $banners = $query->where('title', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate($request->sort);
+        } else {
+            $banners = $query->paginate(2);
+        }
+        return view('screens.admin.banners.index',compact('banners'));
     }
 
     public function create(): View

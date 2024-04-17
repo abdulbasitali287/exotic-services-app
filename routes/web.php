@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
         Route::get('edit/{banner}','edit')->name('edit');
         Route::put('update/{banner}','update')->name('update');
         Route::delete('destroy/{banner}','destroy')->name('destroy');
+        Route::get('search','index')->name('search');
     });
 
     // Route::prefix('page')->name('page.')->controller(PageController::class)->group(function(){
@@ -54,6 +55,7 @@ Route::prefix('admin')->group(function () {
         Route::get('edit/{blog}','edit')->name('edit');
         Route::put('update/{blog}','update')->name('update');
         Route::delete('destroy/{blog}','destroy')->name('destroy');
+        Route::get('search','index')->name('search');
     });
 
     Route::prefix('faqs')->name('faqs.')->controller(FaqsController::class)->group(function(){
@@ -71,16 +73,17 @@ Route::prefix('admin')->group(function () {
     });
     Route::prefix('contact-us')->name('contact-us.')->controller(ContactUsController::class)->group(function(){
         Route::get('/','index')->name('index');
+        Route::delete('destroy/{contact}','destroy')->name('destroy');
     });
 
     Route::prefix('services')->name('service.')->controller(ServiceController::class)->group(function(){
         Route::get('/','index')->name('index');
         Route::get('create','create')->name('create');
         Route::post('store','store')->name('store');
-        Route::get('show/{service}','show')->name('show');
         Route::get('edit/{service}','edit')->name('edit');
         Route::put('update/{service}','update')->name('update');
         Route::delete('destroy/{service}','destroy')->name('destroy');
+        Route::get('search','index')->name('search');
     });
 
     Route::prefix('reviews')->name('reviews.')->controller(ReviewController::class)->group(function(){

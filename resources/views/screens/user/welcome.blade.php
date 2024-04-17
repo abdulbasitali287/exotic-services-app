@@ -205,7 +205,8 @@
                                     <div
                                         class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
                                         <p class="fw-bold text-white pb-4 ">
-                                            {{ Str::limit($service->description, 150, '...') }}</p>
+                                            {{ Str::limit('Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit beatae delectus quam omnis deserunt sint consequatur architecto officia et hic consectetur quis cum nulla fugiat dolorum, animi ex aperiam, mollitia, dolore quo? Corrupti eveniet accusamus expedita minus, recusandae est officiis nostrum dolorum voluptatem assumenda! Cupiditate rem quisquam incidunt! Officiis, assumenda odio. Dolorum eos repellat assumenda, harum, rerum nisi necessitatibus facilis distinctio accusamus, cumque amet dolorem. Perferendis delectus reiciendis doloremque at consequuntur temporibus provident eveniet ullam alias, commodi rem iusto deserunt corporis cumque magni porro! Repellat quaerat doloremque assumenda quas, officiis, amet vel at voluptates numquam soluta tempore, ea possimus nobis explicabo iusto animi facere iste dolore alias voluptatem ex optio saepe! Itaque illo consequuntur hic, necessitatibus eveniet assumenda aut ipsum quia voluptatem neque odio recusandae tempora quo molestiae eius dolores aperiam repellat! Laboriosam porro illum modi obcaecati, ipsum, reiciendis doloribus vel perspiciatis laborum optio rerum officiis delectus, accusantium pariatur libero.', 150, '...') }}</p>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="py-2">

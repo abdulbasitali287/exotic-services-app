@@ -1,23 +1,31 @@
 @extends('layouts.admin')
+@push('styles')
+    <style>
+    .table td {
+        white-space: wrap;
+    }
+    </style>
+@endpush
 @section('content')
     <!-- content -->
     <div class="content">
-
         <div class="card">
             <div class="card-body">
                 <div class="d-md-flex">
                     <div class="d-md-flex gap-4 align-items-center">
-                        <form class="mb-3 mb-md-0">
+                        <form action="{{ route('service.search') }}" class="mb-3 mb-md-0">
                             <div class="row g-3">
                                 <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option>Sort by</option>
+                                    <select class="form-select" name="order">
+                                        <option value="">Sort by</option>
                                         <option value="desc">Desc</option>
                                         <option value="asc">Asc</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-select">
+                                    <select class="form-select" name="sort">
+                                        <option value="">select order</option>
+                                        <option value="2">2</option>
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
@@ -27,10 +35,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
+                                        <input type="text" name="search" class="form-control" placeholder="Search">
                                         <button class="btn btn-outline-light" type="button">
                                             <i class="bi bi-search"></i>
                                         </button>
+                                        <input type="submit" style="background-color: #FF6E40;" class="btn btn-sm text-white" value="Search">
                                     </div>
                                 </div>
                             </div>
@@ -47,19 +56,21 @@
             <table id="invoices" class="table table-custom table-lg">
                 <thead>
                     <tr>
-                    <tr>
+                        <th></th>
                         <th class="px-4">SNO</th>
                         <th>SERVICE</th>
                         <th>FEATURED</th>
                         <th>IMAGE</th>
                         <th class="text-end">Actions</th>
                     </tr>
-                    </tr>
                 </thead>
                 <tbody>
                     @forelse ($services as $service)
                         <tr>
-                            <th scope="row" class="text-danger px-4">{{ '#' . $loop->iteration }}</th>
+                            <td class="text-center">
+                                <i class="fa-solid fa-angle-down details-btn me-1 fs-5 fw-bold text-danger d-block" style="cursor: pointer"></i>
+                            </td>
+                            <td class="text-danger px-4 fw-bold">{{ '#' . $loop->iteration }}</td>
                             <td>{{ Str::limit(Str::upper($service->service_name), 30, '...') }}</td>
                             <td>{!! $service->feature_service
                                 ? "<span class='btn btn-success btn-sm'>YES</span>"
@@ -73,14 +84,29 @@
                                         <i class="bi bi-three-dots"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                        <button type="button" class="dropdown-item detail-btn"
-                                            data-id="{{ $service->id }}" data-bs-toggle="modal"
-                                            data-bs-target="#serviceModal">
-                                            Details
-                                        </button>
                                         <a href="{{ route('service.edit', $service->id) }}" class="dropdown-item">Edit</a>
                                         <a href="{{ route('service.destroy', $service->id) }}" class="dropdown-item"
                                             data-confirm-delete="true">DELETE</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="details-row" style="display: none;">
+                            <td colspan="6">
+                                <!-- Additional details here -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="" style="height: 400px;overflow-y: scroll;">
+                                                <p class="text-capitalize"> <strong>Service Name:</strong> {{ $service->service_name }} </p>
+                                                <p class="text-capitalize"><strong>Text on hover:</strong> {{ $service->text_on_hover }}</p>
+                                                <p class="text-capitalize"><strong>Alt text:</strong> {{ $service->alt_text }}</p>
+                                                <strong class="d-block pb-2">Description:</strong>
+                                                <div id="blogBody" >
+                                                    {!! $service->description !!}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -95,8 +121,10 @@
                 </tbody>
             </table>
         </div>
-
-        <nav class="mt-5" aria-label="Page navigation example">
+        <div class="d-flex justify-content-center">
+            {{ $services->links() }}
+        </div>
+        {{-- <nav class="mt-5" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
@@ -112,7 +140,7 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
 
     </div>
     <!-- ./ content -->
@@ -134,51 +162,18 @@
             </div>
         </div>
     </div>
-@endsection
-@push('scripts')
+
+    @push('scripts')
     <script>
         $(document).ready(function() {
-            $(document).on('click', '.detail-btn', function(event) {
-                event.preventDefault();
-                $('.modal-body').empty();
-                const serviceId = $(this).data('id');
-                $.ajax({
-                    type: "get",
-                    url: "{{ route('service.show', '') }}" + "/" + serviceId,
-                    success: function(response) {
-                        $('.modal-body').empty();
-                            $('.modal-body').append(`
-                                <div class="row">
-                                    <div class="col" style="object-position: contain;">
-                                        <strong>Image</strong>
-                                        <img src="${response.image}" class="mb-2" width="100%" height="150px" alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <strong>Navigation Name</strong>
-                                        <p class="text-muted navigation-name">${response.service.service_name}</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <strong>Text on hover</strong>
-                                        <p class="text-muted navigation-name">${response.service.text_on_hover}</p>
-                                    </div>
-                                    <div class="col">
-                                        <strong>Alt text for image</strong>
-                                        <p class="text-muted navigation-name">${response.service.alt_text}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <strong>Description</strong>
-                                        <p class="text-muted navigation-name">${response.service.description}</p>
-                                    </div>
-                                </div>
-                                `
-                            );
-                    }
-                });
+            // $('#blogBody').css({'display':'flex','flex-wrap':'wrap'});
+            $('#blogBody strong').css('text-transform', 'uppercase');
+            $('#blogBody p').css({'color': '#777777','font-size': '16px!important','text-align':'justify'});
+            $('#blogBody br').remove();
+            $(".details-btn").click(function() {
+                $(this).closest("tr").next(".details-row").toggle(400);
             });
         });
     </script>
-@endpush
+    @endpush
+@endsection

@@ -15,12 +15,34 @@ class BlogsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $title = 'Delete Blog!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        $blogs = Blog::get();
+        $query = Blog::query();
+        if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
+            $blogs = $query->where('title', 'like', "%$request->search%")->paginate();
+        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $blogs = $query->where('title', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate();
+        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $blogs = $query->where('title', 'like', "%$request->search%")
+                ->paginate($request->sort);
+        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $blogs = $query->order($request->order)->paginate();
+        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $blogs = $query->order($request->order)->paginate($request->sort);
+        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $blogs = $query->paginate($request->sort);
+        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $blogs = $query->where('title', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate($request->sort);
+        } else {
+            $blogs = $query->paginate(2);
+        }
         return view('screens.admin.blogs.index',compact('blogs'));
     }
 

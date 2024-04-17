@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Page;
 use App\Models\Service;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
@@ -25,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // view()->share('appPages', Page::get());
         View::share('servicesData', Service::get());
         View::share('bannersData', Banner::get());
+        Paginator::useBootstrap();
     }
 }

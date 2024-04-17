@@ -23,4 +23,8 @@ class Blog extends Model implements HasMedia
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
     }
+
+    public function scopeOrder($query,$order){
+        return $query->orderBy('id',$order);
+    }
 }

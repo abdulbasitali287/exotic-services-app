@@ -120,7 +120,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('banner.index') }}">
+                <a class="{{ $currentRouteName == 'banner.index' ? 'active' : '' }}" href="{{ route('banner.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-image"></i>
                     </span>
@@ -128,7 +128,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('blog.index') }}">
+                <a class="{{ $currentRouteName == 'blog.index' ? 'active' : '' }}" href="{{ route('blog.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-edit"></i>
                     </span>
@@ -136,7 +136,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('reviews.index') }}">
+                <a class="{{ $currentRouteName == 'reviews.index' ? 'active' : '' }}" href="{{ route('reviews.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa-solid fa-users-viewfinder"></i>
                     </span>
@@ -144,7 +144,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('faqs.index') }}">
+                <a class="{{ $currentRouteName == 'faqs.index' ? 'active' : '' }}" href="{{ route('faqs.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-question-circle"></i>
                     </span>
@@ -152,7 +152,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('phone-number.create') }}">
+                <a class="{{ $currentRouteName == 'phone-number.create' ? 'active' : '' }}" href="{{ route('phone-number.create') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-phone"></i>
                     </span>
@@ -160,7 +160,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('contact-us.index') }}">
+                <a class="{{ $currentRouteName == 'contact-us.index' ? 'active' : '' }}" href="{{ route('contact-us.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-envelope"></i>
                     </span>
@@ -277,7 +277,7 @@
             </li>
             <li class="nav-item ms-3">
                 <button class="btn btn-primary btn-icon">
-                    <i class="bi bi-plus-circle"></i> Add Product
+                    <i class="bi bi-plus-circle text-white"></i> Add Product
                 </button>
             </li>
         </ul>

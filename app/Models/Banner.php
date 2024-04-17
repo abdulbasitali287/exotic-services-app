@@ -28,4 +28,8 @@ class Banner extends Model implements HasMedia
             ->fit(Manipulations::FIT_CROP, 1920, 600)
             ->nonQueued();
     }
+
+    public function scopeOrder($query,$order){
+        return $query->orderBy('id',$order);
+    }
 }

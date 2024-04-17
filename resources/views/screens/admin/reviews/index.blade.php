@@ -2,7 +2,6 @@
 @section('content')
     <!-- content -->
     <div class="content">
-
         <div class="card">
             <div class="card-body">
                 <div class="d-md-flex">
@@ -47,7 +46,7 @@
             <table id="invoices" class="table table-custom table-lg">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>SNO</th>
                         <th>NAME</th>
                         <th>RATING</th>
                         <th>REVIEW</th>
@@ -57,11 +56,8 @@
                 <tbody>
                     @forelse ($reviews as $review)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <th class="text-danger">{{ '#' . $loop->iteration }}</th>
                             <td>
-                                <div class="avatar avatar-sm avatar-success me-2">
-                                    <div class="avatar-text rounded-circle">D</div>
-                                </div>
                                 {{ $review->name }}
                             </td>
                             <td>{{ $review->rating }}</td>

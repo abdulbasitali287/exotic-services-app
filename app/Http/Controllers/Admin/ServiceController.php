@@ -15,13 +15,35 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $title = 'Delete Service!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        $services = Service::get();
-        return view('screens.admin.services.index',compact('services'));
+        $query = Service::query();
+        if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
+            $services = $query->where('service_name', 'like', "%$request->search%")->paginate();
+        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $services = $query->where('service_name', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate();
+        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $services = $query->where('service_name', 'like', "%$request->search%")
+                ->paginate($request->sort);
+        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
+            $services = $query->order($request->order)->paginate();
+        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $services = $query->order($request->order)->paginate($request->sort);
+        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
+            $services = $query->paginate($request->sort);
+        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
+            $services = $query->where('service_name', 'like', "%$request->search%")
+                ->order($request->order)
+                ->paginate($request->sort);
+        } else {
+            $services = $query->paginate(2);
+        }
+        return view('screens.admin.services.index', compact('services'));
     }
 
     /**
@@ -54,17 +76,13 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
-    {
-        return response()->json(['service' => $service,'image' => $service->getFirstMediaUrl('service_banners')]);
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Service $service): View
     {
-        return view('screens.admin.services.edit',compact('service'));
+        return view('screens.admin.services.edit', compact('service'));
     }
 
     /**
@@ -78,16 +96,16 @@ class ServiceController extends Controller
                 $service->addMedia($request->file('service_banner'))->toMediaCollection('service_banners');
                 Alert::success('record updated successfully...!');
                 return redirect(route('service.index'));
-            }else {
-                toast('service did not updated...!','error');
+            } else {
+                toast('service did not updated...!', 'error');
                 return back();
             }
-        }else {
+        } else {
             if ($service->update($request->sanitisedUpdate())) {
                 Alert::success('record updated successfully...!');
                 return redirect(route('service.index'));
-            }else {
-                toast('blog did not updated...!','error');
+            } else {
+                toast('blog did not updated...!', 'error');
                 return back();
             }
         }
