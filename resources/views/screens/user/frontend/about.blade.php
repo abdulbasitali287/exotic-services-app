@@ -14,7 +14,7 @@
         <div class="row p-0 m-0">
             <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
                 {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
-                <img src="{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}" class="w-75 rounded-0" alt="sevice image">
+                <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
             <div
                 class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">

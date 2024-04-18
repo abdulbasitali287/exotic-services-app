@@ -64,7 +64,7 @@
                             <td class="text-center">
                                 <i class="fa-solid fa-angle-down details-btn me-1 fs-5 fw-bold text-danger d-block" style="cursor: pointer"></i>
                             </td>
-                            <td class="text-danger fw-bold">{{ '#' . $loop->iteration }}</td>
+                            <td class="text-danger fw-bold">{{ '#' . $contact->id }}</td>
                             <td>{{ $contact->name }}</td>
                             <td>{{ $contact->email }}</td>
                             <td>{{ $contact->phone }}</td>

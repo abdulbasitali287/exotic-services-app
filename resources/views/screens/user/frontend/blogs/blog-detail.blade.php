@@ -307,17 +307,22 @@
 </style>
 @section('content')
     <div class="container-fluid p-0 m-0">
+        @foreach ($bannersData as $banner)
+        @if ($banner->page === "blog")
         <div class="row p-0 m-0">
             <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
-                <img src="{{ asset('assets/banners/blogs.jpg') }}" alt="" class="w-75">
+                {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
+                <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
             <div
                 class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">100% APPROVED BY CUSTOMERS
+                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
-                <h1 class="text-black display-3 fw-bold pt-4 pb-4">BLOG </h1>
+                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
             </div>
         </div>
+        @endif
+        @endforeach
     </div>
 
     <div class="container">

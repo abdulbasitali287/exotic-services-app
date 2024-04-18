@@ -924,7 +924,8 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
   }
 
   .contact-us_banner img{
-    height: 387px; object-fit: cover;
+    height: 400px;
+    object-fit: cover;
    }
 
 

@@ -119,14 +119,14 @@
     <section class="py-5"
         style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}');background-size: cover;background-position: right;background-repeat: no-repeat;"
         >
-        <div class="container py-5">
+        <div class="container-lg text-sm-center text-lg-start py-md-5">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <div>
                         <h3 class="display-4 fw-bold text-uppercase text-white">
                             Welcome to Saudi Industrial Support Services
                         </h3>
-                        <a href="#" class="btn btn-dark px-5 py-3 mt-4 border-0 rounded-0"
+                        <a href="{{ route('services') }}" class="btn btn-dark px-5 py-3 mt-4 border-0 rounded-0"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -169,7 +169,7 @@
 
                             Discover how we can assist you in achieving
                             operational excellence and sustaining your growth.</p>
-                        <a class="btn btn-dark border-0 rounded-0 py-3 fw-bold" href="#"
+                        <a class="btn btn-dark border-0 rounded-0 py-3 fw-bold" href="{{ route('services') }}"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -184,19 +184,21 @@
     </section>
 
     <section id="services">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col main-page__services">
-                    <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
-                    <a href="#" class="text-dark anchor_text">VIEW ALL SERVICES</a>
+        <div class="container-md">
+            <div class="row mt-md-5">
+                <div class="col">
+                    <div class="pb-sm-3 pb-lg-0">
+                        <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
+                        <a href="{{ route('services') }}" class="text-dark anchor_text">VIEW ALL SERVICES</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container mt-5">
-            <div class="row gy-3">
+        <div class="container-lg mt-md-5">
+            <div class="row gy-3 justify-content-lg-start justify-content-md-center">
                 @forelse ($services as $service)
-                    <div class="col-6 mb-2">
+                    <div class="col-lg-6 col-md-10 mb-2">
                         <a href="{{ route('service.details', $service->id) }}" style="text-decoration: none">
                             <div class="card border-0">
                                 <div class="position-relative">
@@ -312,10 +314,10 @@
         <div class="row p-0 m-0">
             <div class="col-12 p-0 m-0">
                 <div class="position-relative">
-                    <img src="{{ asset('assets/home-big-image.jpg') }}" alt="" class="img-fluid w-100 book-an__appt"
+                    <img src="{{ asset('assets/service-home-2-transformed.jpeg') }}" alt="" class="img-fluid w-100 book-an__appt"
                         style="height: 600px;!important;object-fit:cover">
                     <div class="position-absolute top-50 start-50 translate-middle book-an__apptBtn">
-                        <a href="#" class="btn btn-dark text-white fs-6 border-0 rounded-circle round_button"
+                        <a href="{{ route('services') }}" class="btn btn-dark text-white fs-6 border-0 rounded-circle round_button"
                             style="font-size: 15px !important;
                         font-weight: bold !important;
                         text-transform: uppercase !important;
@@ -331,17 +333,17 @@
     </section>
 
     <section>
-        <div class="container">
+        <div class="container-md">
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="text-dark display-5 fw-bold py-5 font_heading cus-approve">100% APPROVED BY CUSTOMERS</h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-12">
-                    <div class="row reviews d-flex justify-content-center main-page__reviews">
-                        <div class="col-md-4 col-sm-6 col-12">
-                            <div class="card" style="width: 330px">
+                    <div class="row justify-content-center align-items-center reviews main-page__reviews">
+                        <div class="col-md-6">
+                            <div class="card mx-auto" style="width:330px!important">
                                 <div class="w-100">
                                     <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
                                 </div>
@@ -425,7 +427,7 @@
                                 @enderror
                         </div>
                     </div>
-                    <button class="btn text-white border-0 rounded-0 px-4 py-3 ms-4 mb-5 fs-5" type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></button>
+                    <button class="btn text-white border-0 rounded-0 px-4 py-3 ms-md-4 mb-5 fs-5" type="submit">SUBMIT <i class="fas fa-arrow-right ps-2"></i></button>
                     {!! Form::close() !!}
                 <div class="alert alert-success mt-3 d-none" id="successMessage">
                     Thankyou For Contacting Us!!

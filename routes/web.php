@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(DashboardController::class)->group(function(){
         Route::get('dashboard','index');
     });
@@ -192,5 +193,12 @@ Route::get('/blog/{id}/{slug}',[AdminController::class, 'blogDetail'])->name('bl
 // Route::get('/master',[AdminController::class, 'getAllNavs']);
 
 
-
+// guest routes
+Route::controller(AuthController::class)->middleware('guest')->name('auth.')->group(function(){
+    // Route::get('signup','signUp')->name('register');
+    // Route::post('signup','registered')->name('registered');
+    Route::get('login','loginView')->name('loginView');
+    Route::post('login','login')->name('login');
+    Route::post('logout','logout')->name('logout')->withoutMiddleware('guest');
+});
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo-2.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-06.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -93,13 +93,14 @@
         <div class="row p-0 m-0 extraNav">
             <div class="col-12 m-0 p-0 text-center bg-white header_up ">
                 {{-- <div class="col-12 header1 text-center header_up " style="background-color: #2b2e3a"> --}}
-                <a href="tel:+971503028022"><i class="fa-solid fa-phone-flip text-dark mx-3 mt-3"><span
+                <a href="{{ route('contact-us') }}"><i class="fa-solid fa-phone-flip text-dark mx-3 mt-3"><span
                             class="text-dark fw-normal m-3">CALL US
                             NOW {{ isset($phNo->phone_number) }}&nbsp;&nbsp;</span><span
                             class="fw-normal fs-4">|</span></i></a>
-                <a href="{{ route('contact_us') }}"><i class="fa fa-calendar-o text-dark mx-3 mt-3"><span
-                            class="text-dark fw-normal text-uppercase m-3">Schedule inspection visit &nbsp;&nbsp;</span></span><span class="fw-normal fs-4">|</span></i></a>
-                <a href="/contact-us#map"><i class="fa-solid fa-location-dot text-dark mx-3 mt-3"><span
+                <a href="{{ route('contact-us') }}"><i class="fa fa-calendar-o text-dark mx-3 mt-3"><span
+                            class="text-dark fw-normal text-uppercase m-3">Schedule inspection visit
+                            &nbsp;&nbsp;</span></span><span class="fw-normal fs-4">|</span></i></a>
+                <a href="{{ route('contact-us') }}#map"><i class="fa-solid fa-location-dot text-dark mx-3 mt-3"><span
                             class="text-dark fw-normal m-3">FIND US
                             ON MAP&nbsp;&nbsp;</span></i></a>
             </div>
@@ -113,7 +114,7 @@
                     <nav class="navbar navbar-expand-lg bg-white">
                         {{-- <nav class="navbar navbar-expand-lg header1" style="background-color: #2b2e3a"> --}}
                         <div class="container-fluid">
-                            <a href="/" class="navbar-brand ps-5"><img class="img-fluid ms-4" width="60"
+                            <a href="/" class="navbar-brand ps-md-5"><img class="img-fluid ms-md-4" width="60"
                                     src="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-06.png') }}" alt=""></a>
                             {{-- <a href="/" class="navbar-brand ps-5"><img class="img-fluid" width="120"
                                     src="{{ asset('assets/logo-4.png') }}" alt=""></a> --}}
@@ -134,8 +135,8 @@
                                             href="{{ route('about-us') }}">About Us</a>
                                     </li>
                                     <li class="nav-item dropdown pe-4">
-                                        <a class="nav-link text-dark dropdown-toggle fw-normal fs-5"
-                                            href="" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="nav-link text-dark dropdown-toggle fw-normal fs-5" href=""
+                                            data-bs-toggle="dropdown" aria-expanded="false">
                                             SERVICES
                                         </a>
                                         <ul class="dropdown-menu">
@@ -143,7 +144,8 @@
                                             </li>
                                             @foreach ($servicesData as $service)
                                                 <li class="dropdown-item dropend sub-serviceCss">
-                                                    <a class="nav-link" href="{{ route('service.details',$service->id) }}">
+                                                    <a class="nav-link"
+                                                        href="{{ route('service.details', $service->id) }}">
                                                         {{ $service->navigation_name }}
                                                     </a>
                                                 </li>
@@ -407,80 +409,84 @@
         $phNo = \App\Models\PhoneService::first();
     @endphp
 
-    <div class="container-fluid p-0 m-0" id="footer">
-        <div class="row header1 p-0 m-0 justify-content-around pt-3 pb-5">
-            <div class="col-md-4 col-12 footer-items mt-5 footer-col" style="width: 28%;">
-                <h2 class="footer fw-bold fs-5">OUR LOCATION</h2>
-                <ul style="list-style-type: none;">
-                    {{-- <li class="footer fw-bold fs-5">SHOWROOM LOCATION</li> --}}
-                    <li><i class="fa-solid fa-location-dot text-white">
-                        </i>
-                        <span class="footer header1 text-wrap fw-normal m-2">Industrial Area , Al Jubail Saudi Arabia, 0000
-                        </span>
-                    </li>
-                    <li><i class="fa-solid fa-envelope text-white"></i><span
-                            class="fw-normal header1 text-white m-2">xyz@gmail.com</span></li>
-                    <li>
-                        <i class="fa-solid fa-phone text-white "></i>
-                        <span class="fw-normal header1 text-white m-2">
-                            <a href="tel:+971503028022" style="text-decoration:none;color: #fff;">+971000000000</a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-4 col-12 mt-5 footer-col" style="width: 28%;">
-                <h2 class="footer fw-bold fs-5 quick-nav">QUICK NAV</h2>
-                <ul style="list-style-type: none;">
-                    {{-- <li class="footer fw-bold mt-2 fs-5">QUICK NAV</li> --}}
-                    {{-- <li class="footer header1 text-wrap fw-normal mt-2">SHOP</li> --}}
-                    <a href="{{ route('home') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">HOME</li>
-                    </a>
-                    <a href="{{ route('about-us') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">ABOUT US</li>
-                    </a>
-                    <a href="{{ route('services') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">SERVICES</li>
-                    </a>
-                    <a href="{{ route('career') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">CAREERS</li>
-                    </a>
-                    <a href="{{ url('blogs') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">BLOGS</li>
-                    </a>
-                    <a href="{{ route('industries-surved') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">INDUSTRIES SERVED</li>
-                    </a>
-                    <a href="{{ route('contact_us') }}" class="bg-black" style="text-decoration: none">
-                        <li class="footer header1 text-wrap fw-normal mt-2">CONTACT US</li>
-                    </a>
-                </ul>
-            </div>
-            <div class="col-md-4 col-12 mt-5 footer-col" style="width: 28%;">
-                <h2 class="footer fw-bold fs-5 quick-nav">FOLLOW US ON</h2>
-                <ul class="social-icons" style="list-style-type: none;margin-top: 25px;">
-                    {{-- <li class="footer fw-bold mt-2 fs-5 mb-3">FOLLOW US ON</li> --}}
-                    <li>
-                        <a href="#" class="" style="background-color: var(--background-color)"><i
-                                class="fa-brands fa-instagram text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--background-color)"
-                            style="padding: 15px 16px 10px 16px;"><i class="fa fa-facebook text-white"
-                                style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--background-color)"><i
-                                class="fa-brands fa-youtube text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--background-color)"><i
-                                class="fa-brands fa-twitter text-white" style=" font-size: 25px"></i></a>
-                        <a href="#" class="" style="background-color: var(--background-color)"><i
-                                class="fa-brands fa-linkedin text-white" style=" font-size: 25px"></i></a>
-                    </li>
-                    <li class="footer header1 text-wrap fw-normal mt-4">© Copyright 2024 web programmer</li>
-                    <li class="footer header1 text-wrap fw-normal mt-2"><a href="https://www.mywebprogrammer.com/"
-                            class="remove-link__css" target="_blank" style="text-decoration: none;color: #fff;">
-                            Developed By: My Web Programmer </a></li>
-                </ul>
+    <section class="w-100" id="footer">
+        <div class="p-0 m-0">
+            <div class="row px-5 header1 p-0 m-0 pt-3 pb-5">
+                <div class="col-lg-4 col-md-6 col-12 text-sm-center text-md-start pt-5">
+                    <h2 class="fw-bold fs-5">OUR LOCATION</h2>
+                    <ul class="p-0" style="list-style-type: none;">
+                        {{-- <li class="footer fw-bold fs-5">SHOWROOM LOCATION</li> --}}
+                        <li class="pb-sm-2"><i class="fa-solid fa-location-dot text-white">
+                            </i>
+                            <span class="footer header1 text-wrap fw-normal m-2">Industrial Area , Al Jubail Saudi
+                                Arabia, 0000
+                            </span>
+                        </li>
+                        <li class="pb-sm-2"><i class="fa-solid fa-envelope text-white"></i><span
+                                class="fw-normal header1 text-white m-2">xyz@gmail.com</span></li>
+                        <li class="pb-sm-2">
+                            <i class="fa-solid fa-phone text-white "></i>
+                            <span class="fw-normal header1 text-white m-2">
+                                <a href="tel:+971503028022"
+                                    style="text-decoration:none;color: #fff;">+971000000000</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 text-sm-center text-md-start pt-5">
+                    <h2 class="fw-bold fs-5">QUICK NAV</h2>
+                    <ul class="p-0" style="list-style-type: none;">
+                        {{-- <li class="footer fw-bold mt-2 fs-5">QUICK NAV</li> --}}
+                        {{-- <li class="footer header1 text-wrap fw-normal mt-2">SHOP</li> --}}
+                        <a href="{{ route('home') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">HOME</li>
+                        </a>
+                        <a href="{{ route('about-us') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">ABOUT US</li>
+                        </a>
+                        <a href="{{ route('services') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">SERVICES</li>
+                        </a>
+                        <a href="{{ route('career') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">CAREERS</li>
+                        </a>
+                        <a href="{{ url('blogs') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">BLOGS</li>
+                        </a>
+                        <a href="{{ route('industries-surved') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">INDUSTRIES SERVED</li>
+                        </a>
+                        <a href="{{ route('contact-us') }}" class="bg-black" style="text-decoration: none">
+                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">CONTACT US</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-sm-center text-lg-end pt-5">
+                    <h2 class="text-lg-center fw-bold fs-5">FOLLOW US ON</h2>
+                    <ul class="p-0 social-icons" style="list-style-type: none;margin-top: 25px;">
+                        {{-- <li class="footer fw-bold mt-2 fs-5 mb-3">FOLLOW US ON</li> --}}
+                        <li>
+                            <a href="#" class="" style="background-color: var(--background-color)"><i
+                                    class="fa-brands fa-instagram text-white" style=" font-size: 25px"></i></a>
+                            <a href="#" class="" style="background-color: var(--background-color)"
+                                style="padding: 15px 16px 10px 16px;"><i class="fa fa-facebook text-white"
+                                    style=" font-size: 25px"></i></a>
+                            <a href="#" class="" style="background-color: var(--background-color)"><i
+                                    class="fa-brands fa-youtube text-white" style=" font-size: 25px"></i></a>
+                            <a href="#" class="" style="background-color: var(--background-color)"><i
+                                    class="fa-brands fa-twitter text-white" style=" font-size: 25px"></i></a>
+                            <a href="#" class="" style="background-color: var(--background-color)"><i
+                                    class="fa-brands fa-linkedin text-white" style=" font-size: 25px"></i></a>
+                        </li>
+                        <li class="footer header1 text-wrap fw-normal mt-4">© Copyright 2024 web programmer</li>
+                        <li class="footer header1 text-wrap fw-normal mt-2"><a href="https://www.mywebprogrammer.com/"
+                                class="remove-link__css" target="_blank" style="text-decoration: none;color: #fff;">
+                                Developed By: My Web Programmer </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div>
         <a href="" class="scrollup">

@@ -21,8 +21,6 @@ class ContactUsController extends Controller
             ->allowedFilters(['name','phone','email'])
             ->allowedSorts(['id','name','email'])
             ->paginate(5);
-        // dd($contact);
-        // $contacts = Contact::paginate(5);
         return view('screens.admin.contact-us.index',compact('contacts'));
     }
 

@@ -18,20 +18,25 @@
 @endpush
 @section('content')
 <section>
-    <div class="row p-0 m-0">
-        <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
-            <img src="{{ asset('assets/banners/contact-us.jpg') }}" alt="" class="w-75">
+    @foreach ($bannersData as $banner)
+        @if ($banner->page === "contact-us")
+        <div class="row p-0 m-0">
+            <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
+                {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
+                <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
+            </div>
+            <div
+                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+                </p>
+                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
+            </div>
         </div>
-        <div
-            class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-            <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">100% APPROVED BY CUSTOMERS
-            </p>
-            <h1 class="text-black display-3 fw-bold pt-4 pb-4">CONTACT</h1>
-        </div>
-    </div>
+        @endif
+        @endforeach
 </section>
 <div class="container-fluid p-0 m-0">
-    <div class="row mt-5 p-0 m-0">
+    <div class="row p-0 m-0">
         <div class="col-md-12 pe-5 contact-us__LeC">
             <h1 class="ms-5 display-5 fw-bold font_heading mt-5" >LOCATION & <br> INFORMATION</h1>
             <div class="contact-us__servicesAll">
