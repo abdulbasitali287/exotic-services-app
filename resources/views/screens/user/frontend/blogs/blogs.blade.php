@@ -170,8 +170,8 @@
         <div class="container">
             <div class="row py-5" style="width: 100%;">
                 @forelse ($blogs as $blog)
-                <div class="col-md-4 px-2">
-                    <div class="card shadow border-0">
+                <div class="col-lg-4 px-2">
+                    <div class="card mb-sm-4 shadow border-0">
                         <img src="{{ $blog->getFirstMediaUrl('blog_images') }}"
                             class="card-img-top" alt="...">
                         <div class="card-content text-center">

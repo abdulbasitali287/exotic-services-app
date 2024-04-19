@@ -22,26 +22,11 @@ class ServiceController extends Controller
         confirmDelete($title, $text);
         $query = Service::query();
         if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
-            $services = $query->where('service_name', 'like', "%$request->search%")->paginate();
-        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
             $services = $query->where('service_name', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate();
-        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $services = $query->where('service_name', 'like', "%$request->search%")
-                ->paginate($request->sort);
-        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
-            $services = $query->order($request->order)->paginate();
-        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $services = $query->order($request->order)->paginate($request->sort);
-        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $services = $query->paginate($request->sort);
-        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $services = $query->where('service_name', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate($request->sort);
-        } else {
-            $services = $query->paginate(2);
+                        ->orWhere('description','like',"%$request->search%")
+                        ->paginate(5);
+        }else {
+            $services = $query->paginate(5);
         }
         return view('screens.admin.services.index', compact('services'));
     }

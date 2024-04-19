@@ -46,7 +46,7 @@
                             @enderror
                         </div>
                         <div class="form-group mb-2">
-                            <button type="submit" class="btn btn-success px-4 py-2">ADD</button>
+                            <button type="submit" class="btn btn-success px-4 py-2">ADD BANNER</button>
                         </div>
                     </div>
                 </div>

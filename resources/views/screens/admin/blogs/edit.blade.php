@@ -77,7 +77,7 @@
                             {{ Form::label('Do you want to publish this post now?', 'Do you want to publish this post now?', ['class' => 'form-check-label']) }}
                           </div>
                         <div class="form-group mb-2">
-                            <button type="submit" class="btn btn-success px-4 py-2">UPDATE</button>
+                            <button type="submit" class="btn btn-success px-4 py-2">UPDATE BLOG</button>
                         </div>
                     </div>
                 </div>

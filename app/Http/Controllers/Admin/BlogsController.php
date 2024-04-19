@@ -22,26 +22,11 @@ class BlogsController extends Controller
         confirmDelete($title, $text);
         $query = Blog::query();
         if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
-            $blogs = $query->where('title', 'like', "%$request->search%")->paginate();
-        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
             $blogs = $query->where('title', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate();
-        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $blogs = $query->where('title', 'like', "%$request->search%")
-                ->paginate($request->sort);
-        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
-            $blogs = $query->order($request->order)->paginate();
-        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $blogs = $query->order($request->order)->paginate($request->sort);
-        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $blogs = $query->paginate($request->sort);
-        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $blogs = $query->where('title', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate($request->sort);
-        } else {
-            $blogs = $query->paginate(2);
+                        ->orWhere('body','like',"%$request->search%")
+                        ->paginate(5);
+        }else {
+            $blogs = $query->paginate(5);
         }
         return view('screens.admin.blogs.index',compact('blogs'));
     }

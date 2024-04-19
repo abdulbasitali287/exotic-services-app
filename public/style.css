@@ -631,7 +631,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
 
 .header1_{
     background-color: #171616;
-    padding: 55px 30px 110px 30px;
+    /* padding: 55px 30px 110px 30px; */
 }
 
 .faq-appoint{
@@ -1153,14 +1153,14 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .contact-us_bannerTxt{
-        padding: 0 10px 5px 20px!important;
+        /* padding: 0 10px 5px 20px!important; */
         width: 100%;
         background: linear-gradient(270deg, #00000057 -150%, #ffffff 100%)!important;
     }
 
     .contact-us_bannerTxt p{
         font-size: 8px !important;
-        margin: 12px 0!important;
+        /* margin: 12px 0!important; */
     }
 
     .contact-us_bannerTxt h1{
@@ -1425,7 +1425,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 17px!important;
+        font-size: 100px!important;
     }
 
 
@@ -1449,12 +1449,12 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
         margin-left: 1rem!important;
     }
 
-    .about-us__secTwo {
+    /* .about-us__secTwo {
         padding-top: 70px!important;
-    }
+    } */
 
     .about-us__secTwo h1 {
-        font-size: 20px!important;
+        font-size: 100px!important;
     }
 
     .about-us__secTwo h2 {
@@ -1752,7 +1752,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .contact-us_bannerTxt{
-        padding: 0 10px 5px 20px!important;
+        /* padding: 0 10px 5px 20px!important; */
         width: 100%;
         background: linear-gradient(270deg, #00000057 -150%, #ffffff 100%)!important;
     }
@@ -2024,7 +2024,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 17px!important;
+        font-size: 100px!important;
     }
 
 
@@ -2053,7 +2053,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1 {
-        font-size: 20px!important;
+        font-size: 100px!important;
     }
 
     .about-us__secTwo h2 {
@@ -2605,7 +2605,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 16px!important;
+        font-size: 100px!important;
     }
 
 
@@ -2634,7 +2634,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1 {
-        font-size: 20px!important;
+        font-size: 100px!important;
     }
 
     .about-us__secTwo h2 {
@@ -3191,7 +3191,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 16px!important;
+        font-size: 100px!important;
     }
 
 
@@ -3220,7 +3220,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1 {
-        font-size: 20px!important;
+        font-size: 100px!important;
     }
 
     .about-us__secTwo h2 {

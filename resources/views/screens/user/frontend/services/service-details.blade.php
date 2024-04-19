@@ -191,7 +191,7 @@
     </section>
 
     <div class="header1_">
-        <div class="row p-0 m-0 newBigScreenServices1">
+        <div class="row pb-md-5 pb-2 m-0 newBigScreenServices1">
             <div class="col ps-5 services-forAll">
                 <h1 class="text-white display-5 fw-bold font_heading mt-5">SERVICES AT SAUDI INDUSTRIAL </h1>
                 <div class="row ms-3">

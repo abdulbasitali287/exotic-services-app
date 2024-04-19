@@ -20,26 +20,11 @@ class BannerController extends Controller
         confirmDelete($title, $text);
         $query = Banner::query();
         if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
-            $banners = $query->where('title', 'like', "%$request->search%")->paginate();
-        } elseif (!is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
-            $banners = $query->where('title', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate();
-        } elseif (!is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $banners = $query->where('title', 'like', "%$request->search%")
-                ->paginate($request->sort);
-        } elseif (is_null($request->search) && !is_null($request->order) && is_null($request->sort)) {
-            $banners = $query->order($request->order)->paginate();
-        } elseif (is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $banners = $query->order($request->order)->paginate($request->sort);
-        } elseif (is_null($request->search) && is_null($request->order) && !is_null($request->sort)) {
-            $banners = $query->paginate($request->sort);
-        } elseif (!is_null($request->search) && !is_null($request->order) && !is_null($request->sort)) {
-            $banners = $query->where('title', 'like', "%$request->search%")
-                ->order($request->order)
-                ->paginate($request->sort);
-        } else {
-            $banners = $query->paginate(2);
+            $banners = $query->where('page', 'like', "%$request->search%")
+                        ->orWhere('title','like',"%$request->search%")
+                        ->paginate(5);
+        }else {
+            $banners = $query->paginate(5);
         }
         return view('screens.admin.banners.index',compact('banners'));
     }

@@ -43,7 +43,52 @@
     </div> --}}
 
     <div class="row">
+        <div class="col">
+            <div class="card py-0 mb-2">
+                <div class="card-body">
+                    <div class="d-md-flex">
+                        <div class="d-md-flex gap-4 align-items-center">
+                            {{-- <form class="mb-3 mb-md-0">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <select class="form-select">
+                                            <option>Sort by</option>
+                                            <option value="desc">Desc</option>
+                                            <option value="asc">Asc</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select">
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <button class="btn btn-outline-light" type="button">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> --}}
+                        </div>
+                        <div class="dropdown ms-auto">
+                            <a href="{{ route('faqs.create') }}" class="btn btn-primary">ADD FAQ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-8 m-auto">
+
+
             <div class="card">
                 <div class="accordion" id="accordionExample">
                     @forelse ($faqs as $faq)

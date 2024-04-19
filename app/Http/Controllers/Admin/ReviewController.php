@@ -19,12 +19,19 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $title = 'Delete Review!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        $reviews = Review::get();
+        $query = Review::query();
+        if (!is_null($request->search) && is_null($request->order) && is_null($request->sort)) {
+            $reviews = $query->where('name', 'like', "%$request->search%")
+                        ->orWhere('review','like',"%$request->search%")
+                        ->paginate(5);
+        }else {
+            $reviews = $query->paginate(5);
+        }
         return view('screens.admin.reviews.index',compact('reviews'));
     }
 

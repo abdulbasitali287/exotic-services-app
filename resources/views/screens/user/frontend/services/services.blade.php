@@ -123,12 +123,11 @@
             @foreach ($bannersData as $banner)
         @if ($banner->page === "services")
         <div class="row p-0 m-0">
-            <div class="col-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
+            <div class="col-sm-12 p-0 m-0 d-flex justify-content-end contact-us_banner">
                 {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
                 <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
-            <div
-                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
+            <div class="col-md-6 col z-0 position-absolute bg-white align-self-end ps-md-5 pb-5 brands-sec__start contact-us_bannerTxt">
                 <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
                 <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
@@ -140,10 +139,10 @@
     </section>
 
     <section>
-        <div class="container p-0">
+        <div class="container px-md-0 px-sm-4">
             <div class="row pt-4">
                 <div class="col-md-6 p-0">
-                    <h4 class="text-black fw-bold font_heading text-uppercase m-0" style="font-weight: 700 !important;">
+                    <h4 class="text-black d-flex flex-wrap fw-bold font_heading text-uppercase m-0" style="font-weight: 700 !important;">
                         Discover Our Comprehensive Industrial Services</h4>
                 </div>
                 <div class="col-md-6 p-0 px-5">
@@ -184,97 +183,48 @@
             </div>
         </div>
 
-        <div class="container mt-5">
-            <div class="row gy-3">
+        <div class="container-lg mt-md-5">
+            <div class="row gy-3 justify-content-lg-start justify-content-md-center">
                 @forelse ($services as $service)
-                <div class="col-6 mb-2">
-                    <a href="{{ route('service.details',$service->id) }}" style="text-decoration: none">
+                    <div class="col-lg-6 col-md-10 mb-2">
+                        <a href="{{ route('service.details', $service->id) }}" style="text-decoration: none">
+                            <div class="card border-0">
+                                <div class="position-relative">
+                                    <img src="{{ $service->getMedia('service_banners')[0]->getUrl('service_banner') }}" class="w-100 rounded-0"
+                                        height="300" alt="sevice image">
+                                    <div
+                                        class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
+                                        <p class="fw-bold text-white pb-4 ">
+                                            {{ Str::limit('Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit beatae delectus quam omnis deserunt sint consequatur architecto officia et hic consectetur quis cum nulla fugiat dolorum, animi ex aperiam, mollitia, dolore quo? Corrupti eveniet accusamus expedita minus, recusandae est officiis nostrum dolorum voluptatem assumenda! Cupiditate rem quisquam incidunt! Officiis, assumenda odio. Dolorum eos repellat assumenda, harum, rerum nisi necessitatibus facilis distinctio accusamus, cumque amet dolorem. Perferendis delectus reiciendis doloremque at consequuntur temporibus provident eveniet ullam alias, commodi rem iusto deserunt corporis cumque magni porro! Repellat quaerat doloremque assumenda quas, officiis, amet vel at voluptates numquam soluta tempore, ea possimus nobis explicabo iusto animi facere iste dolore alias voluptatem ex optio saepe! Itaque illo consequuntur hic, necessitatibus eveniet assumenda aut ipsum quia voluptatem neque odio recusandae tempora quo molestiae eius dolores aperiam repellat! Laboriosam porro illum modi obcaecati, ipsum, reiciendis doloribus vel perspiciatis laborum optio rerum officiis delectus, accusantium pariatur libero.', 150, '...') }}</p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="py-2">
+                                    <p class="card-text fw-bold text-uppercase">{{ $service->navigation_name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+                    <div class="col-6 mb-2">
                         <div class="card border-0">
                             <div class="position-relative">
-                                <img src="{{ $service->getMedia('service_banners')[0]->getUrl('service_banner') }}" class="w-100 rounded-0"
-                                        height="300" alt="sevice image">
+                                <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
+                                    class="w-100 rounded-0" height="350px" alt="sevice image">
                                 <div
-                                    class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark bg-gradient m-0 d-flex align-items-end px-4">
-                                    <p class="fw-bold text-white pb-4 ">{!! Str::limit('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur asperiores cupiditate error laboriosam expedita reprehenderit culpa aperiam consequuntur, autem, eius iste, eum veritatis blanditiis fugit nesciunt sit quaerat. Porro aliquam expedita magnam officiis. Explicabo delectus nisi fugit quod tempora, sed dolor veritatis nulla nihil minima at id suscipit quo sapiente minus iure tenetur illo eligendi harum assumenda magnam aspernatur aliquam eius. Est, dolores error! Eligendi in eaque repellendus illum quaerat unde nam tempora reprehenderit possimus. Ullam magnam asperiores incidunt consequatur. Vero pariatur consequatur aperiam harum fugit quidem explicabo distinctio deserunt odit, doloremque, reprehenderit velit fugiat, illo tempore aliquid eos excepturi eligendi culpa labore! Enim perspiciatis nesciunt ut velit, omnis, dolores sapiente eligendi, aspernatur libero cum maxime dolore. Quisquam sint necessitatibus in architecto nam itaque, porro facilis asperiores saepe dolorum minima dolor molestias aliquam, sed esse numquam! Dolorem quae magni debitis odit id. Rerum laboriosam earum asperiores, perferendis consequatur ipsam!', 150, '...') !!}</p>
-                                    {{-- <p class="fw-bold text-white pb-4 ">{!! Str::limit($service->description, 150, '...') !!}</p> --}}
+                                    class="hidden-content tw-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
+                                    <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit.
+                                        Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
+                                        voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
                                 </div>
                             </div>
                             <div class="py-2">
-                                <p class="card-text fw-bold text-uppercase">{{ $service->navigation_name }}</p>
+                                <p class="card-text fw-bold text-uppercase">Dummy Service</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                @empty
-                <div class="col-6 mb-2">
-                    <div class="card border-0">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
-                                class="w-100 rounded-0" height="350px" alt="sevice image">
-                            <div
-                                class="hidden-content tw-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
-                                <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
-                                    voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <p class="card-text fw-bold text-uppercase">Dummy Service</p>
                         </div>
                     </div>
-                </div>
                 @endforelse
-                {{-- <div class="col-6 mb-2">
-                    <div class="card border-0">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets/repairing/construction-equipment-rental-market.jpg') }}"
-                                class="w-100 rounded-0" height="350px" alt="sevice image">
-                            <div
-                                class="hidden-content tw-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
-                                <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
-                                    voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <p class="card-text fw-bold text-uppercase">Rental & Trade</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 mb-2">
-                    <div class="card border-0">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets/repairing/Diesel-Fuel-Common-Rail-Injector-Testing-Equipment-Test-Bench.jpg') }}"
-                                class="w-100 rounded-0" height="350px" alt="sevice image">
-                            <div
-                                class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
-                                <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
-                                    voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <p class="card-text fw-bold text-uppercase">Diesel Pump Laboratory</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 mb-2">
-                    <div class="card border-0">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets/repairing/small_880.jpg') }}" class="w-100 rounded-0" height="350px"
-                                alt="sevice image">
-                            <div
-                                class="hidden-content w-100 h-100 position-absolute top-0 left-0 bg-dark m-0 d-flex align-items-end px-4 fw-thin">
-                                <p class="text-white pb-4 fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Minima dolorum alias, et, aut aliquam quo iusto impedit quos blanditiis odit illum
-                                    voluptatum, molestiae unde! Dolore enim quia dicta ab eligendi.</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <p class="card-text fw-bold text-uppercase">Steel Fabrication</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
@@ -335,22 +285,22 @@
     </div>
 
     <section>
-        <div class="container">
+        <div class="container-md">
             <div class="row">
-                <div class="text-center">
-                    <h1 class="text-dark display-5 fw-bold py-5">100% APPROVED BY CLIENTS</h1>
+                <div class="col-12 text-center">
+                    <h1 class="text-dark display-5 fw-bold py-5 font_heading cus-approve">100% APPROVED BY CUSTOMERS</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row reviews d-flex justify-content-center main-page__reviews">
-                        <div class="col-md-4 col-sm-6 col-12">
-                            <div class="card" style="width: 330px">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="row justify-content-center align-items-center reviews main-page__reviews">
+                        <div class="col-md-6">
+                            <div class="card mx-auto" style="width:330px!important">
                                 <div class="w-100">
-                                    <img src="{{ asset('assets/comma.png') }}" width="120" alt="">
+                                    <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
                                 </div>
                                 <div class="px-3 pb-3">
-                                    <p class="card-text font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
+                                    <p class="card-text d-block border-bottom font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
                                         ipsum
                                         dolor, sit amet consectetur adipisicing elit. Aut odit atque, perferendis tempore,
                                         soluta sunt aperiam voluptatibus, illo velit ullam facere ad autem numquam! Unde
@@ -372,7 +322,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row my-5 main-page__realAll">
+            <div class="row mt-5 main-page__realAll">
                 <div class="col-12 pt-3 pb-3 text-center">
                     <a href="{{ route('reviews') }}" class="text-dark anchor_text ">READ ALL REVIEWS</a>
                 </div>

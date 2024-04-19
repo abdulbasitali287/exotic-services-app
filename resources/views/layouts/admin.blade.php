@@ -77,12 +77,11 @@
                          class="rounded-circle" alt="image">
                 </div>
                 <div>
-                    <div class="fw-bold">Timotheus Bendan</div>
-                    <small class="text-muted">Sales Manager</small>
+                    <div class="fw-bold">{{ Auth::user()->name }}</div>
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end">
-                <a href="#" class="dropdown-item d-flex align-items-center">
+                {{-- <a href="#" class="dropdown-item d-flex align-items-center">
                     <i class="bi bi-person dropdown-item-icon"></i> Profile
                 </a>
                 <a href="#" class="dropdown-item d-flex align-items-center">
@@ -90,65 +89,66 @@
                 </a>
                 <a href="#" class="dropdown-item d-flex align-items-center" data-sidebar-target="#settings">
                     <i class="bi bi-gear dropdown-item-icon"></i> Settings
-                </a>
-                <a href="./login.html" class="dropdown-item d-flex align-items-center text-danger"
-                   target="_blank">
-                    <i class="bi bi-box-arrow-right dropdown-item-icon"></i> Logout
-                </a>
+                </a> --}}
+                <li class="nav-item">
+                    <form action="{{ route('auth.logout') }}" method="POST">
+                        @csrf
+                        <button class="dropdown-item d-flex align-items-center text-danger"><i class="bi bi-plus-circle text-white"></i> Logout</button>
+                    </form>
+                </li>
             </div>
         </div>
         <ul>
             @php
             $currentRouteName = Route::currentRouteName();
         @endphp
-            <li class="menu-divider">E-Commerce</li>
-            <li>
-                <a class=""
+            {{-- <li>
+                <a class="{{ $currentRouteName == 'admin.dashboard' ? 'active' : '' }}"
                    href="{{ url('admin/dashboard') }}">
                     <span class="nav-link-icon">
                         <i class="bi bi-bar-chart"></i>
                     </span>
                     <span>Dashboard</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
-                <a class="{{ $currentRouteName == 'service.index' ? 'active' : '' }}" href="{{ route('service.index') }}">
+                <a class="{{ $currentRouteName == 'service.index' || $currentRouteName == 'service.create' || $currentRouteName == 'service.edit' ? 'active' : '' }}" href="{{ route('service.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa-brands fa-servicestack"></i>
                     </span>
-                    <span>MANAGE SERVICES</span>
+                    <span>Manage services</span>
                 </a>
             </li>
             <li>
-                <a class="{{ $currentRouteName == 'banner.index' ? 'active' : '' }}" href="{{ route('banner.index') }}">
+                <a class="{{ $currentRouteName == 'banner.index' || $currentRouteName == 'banner.create' || $currentRouteName == 'banner.edit' ? 'active' : '' }}" href="{{ route('banner.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-image"></i>
                     </span>
-                    <span>MANAGE BANNER</span>
+                    <span>Manage banners</span>
                 </a>
             </li>
             <li>
-                <a class="{{ $currentRouteName == 'blog.index' ? 'active' : '' }}" href="{{ route('blog.index') }}">
+                <a class="{{ $currentRouteName == 'blog.index' || $currentRouteName == 'blog.create' || $currentRouteName == 'blog.edit' ? 'active' : '' }}" href="{{ route('blog.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-edit"></i>
                     </span>
-                    <span>MANAGE BLOGS</span>
+                    <span>Manage blogs</span>
                 </a>
             </li>
             <li>
-                <a class="{{ $currentRouteName == 'reviews.index' ? 'active' : '' }}" href="{{ route('reviews.index') }}">
+                <a class="{{ $currentRouteName == 'reviews.index' || $currentRouteName == 'reviews.create' || $currentRouteName == 'reviews.edit' ? 'active' : '' }}" href="{{ route('reviews.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa-solid fa-users-viewfinder"></i>
                     </span>
-                    <span>MANAGE REVIEWS</span>
+                    <span>Manage reviews</span>
                 </a>
             </li>
             <li>
-                <a class="{{ $currentRouteName == 'faqs.index' ? 'active' : '' }}" href="{{ route('faqs.index') }}">
+                <a class="{{ $currentRouteName == 'faqs.index' || $currentRouteName == 'faqs.create' || $currentRouteName == 'faqs.edit' ? 'active' : '' }}" href="{{ route('faqs.index') }}">
                     <span class="nav-link-icon">
                         <i class="fa fa-question-circle"></i>
                     </span>
-                    <span>MANAGE FAQS</span>
+                    <span>Manage faqs</span>
                 </a>
             </li>
             <li>
@@ -156,7 +156,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-phone"></i>
                     </span>
-                    <span>MANAGE PHONE NUMBER</span>
+                    <span>Manage phone number</span>
                 </a>
             </li>
             <li>
@@ -164,7 +164,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <span>CONTACT US</span>
+                    <span>Contact us</span>
                 </a>
             </li>
 
@@ -189,7 +189,7 @@
     </a>
     <!-- ./ Logo -->
     <div class="page-title">Overview</div>
-    <form class="search-form">
+    {{-- <form class="search-form">
         <div class="input-group">
             <button class="btn btn-outline-light" type="button" id="button-addon1">
                 <i class="bi bi-search"></i>
@@ -200,10 +200,10 @@
                 <i class="bi bi-x"></i>
             </a>
         </div>
-    </form>
+    </form> --}}
     <div class="header-bar ms-auto">
         <ul class="navbar-nav justify-content-end">
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link nav-link-notify" data-count="3" data-bs-toggle="dropdown">
                     <i class="bi bi-cart2 icon-lg"></i>
                 </a>
@@ -274,16 +274,13 @@
                     <h6 class="m-0 px-4 py-3 border-top small">Sub Total : <strong
                             class="text-primary">$1.442,78</strong></h6>
                 </div>
-            </li>
-            <li class="nav-item ms-3">
+            </li> --}}
+            {{-- <li class="nav-item ms-3">
                 <form action="{{ route('auth.logout') }}" method="POST">
                     @csrf
                     <button class="btn btn-primary btn-iconk"><i class="bi bi-plus-circle text-white"></i> Logout</button>
                 </form>
-                {{-- <button class="btn btn-primary btn-icon">
-                    <i class="bi bi-plus-circle text-white"></i> LOGOUT
-                </button> --}}
-            </li>
+            </li> --}}
         </ul>
     </div>
     <!-- Header mobile buttons -->
@@ -306,7 +303,7 @@
     <!-- ./ content -->
 
     <!-- content-footer -->
-    <footer class="content-footer">
+    {{-- <footer class="content-footer">
         <div>© 2021 Vetra - <a href="https://laborasyon.com" target="_blank">Laborasyon</a></div>
         <div>
             <nav class="nav gap-4">
@@ -315,7 +312,7 @@
                 <a href="#" class="nav-link">Get Help</a>
             </nav>
         </div>
-    </footer>
+    </footer> --}}
     <!-- ./ content-footer -->
 
 </div>

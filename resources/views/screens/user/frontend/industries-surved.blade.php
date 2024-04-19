@@ -55,7 +55,7 @@
             <div class="col-md-6 p-0">
                 <h1 class="text-black display-5 fw-bold text-uppercase">INDUSTRIES WE SERVE WITH EXCELLENCE</h1>
             </div>
-            <div class="col-md-6 p-0 px-5">
+            <div class="col-md-6 p-0 px-md-5">
                 <div class="services-sec mt-0">
                     <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span
                                 class="text-black fw-normal m-3 side_heading"
@@ -89,14 +89,14 @@
         </div>
         <div class="row m-0 p-0">
             <div class="col m-0 p-0">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="widht: 100%;height: 37rem;">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade position-relative" data-bs-ride="carousel" style="widht: 100%;min-height: 37rem;">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <img src="{{ asset('assets/banners/EH_Digital_Solutions_3.5e3b1daf80c81-680x365_c.png') }}" class="img-fluid w-100" style="object-fit: cover;" alt="">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div>
                                     <h5 class="display-5 fw-bold text-uppercase fw-bold">Construction</h5>
                                     <p class="text-muted" style="text-align: justify;">
@@ -116,10 +116,10 @@
                       </div>
                       <div class="carousel-item">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <img src="{{ asset('assets/industries-served/manufacturing.jpg') }}" class="img-fluid w-100" style="bject-fit: cover;" alt="">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div>
                                     <h5 class="display-5 fw-bold text-uppercase fw-bold">Manufacturing</h5>
                                     <p class="text-muted" style="text-align: justify;">
@@ -140,10 +140,10 @@
                       </div>
                       <div class="carousel-item">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <img src="{{ asset('assets/banners/blogs.jpg') }}" class="img-fluid w-100" style="height:350px;object-fit: cover;" alt="">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div>
                                     <h5 class="display-5 fw-bold text-uppercase fw-bold">Warehousing</h5>
                                     <p class="text-muted" style="text-align: justify;">
@@ -163,10 +163,10 @@
                       </div>
                       <div class="carousel-item">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <img src="{{ asset('assets/banners/abt-img.jpg') }}" class="img-fluid w-100" style="object-fit: cover;" alt="">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <div>
                                     <h5 class="display-5 fw-bold text-uppercase fw-bold">Ports Operations</h5>
                                     <p class="text-muted" style="text-align: justify;">

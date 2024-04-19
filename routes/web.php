@@ -27,7 +27,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(DashboardController::class)->group(function(){
-        Route::get('dashboard','index');
+        Route::get('dashboard','index')->name('admin.dashboard');
     });
 
     Route::prefix('banner')->name('banner.')->controller(BannerController::class)->group(function(){
@@ -84,7 +84,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('edit/{service}','edit')->name('edit');
         Route::put('update/{service}','update')->name('update');
         Route::delete('destroy/{service}','destroy')->name('destroy');
-        Route::get('search','index')->name('search');
+        // Route::get('search','index')->name('search');
     });
 
     Route::prefix('reviews')->name('reviews.')->controller(ReviewController::class)->group(function(){

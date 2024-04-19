@@ -32,7 +32,7 @@
                     <h1 class="display-5 fw-bold text-white">WHO WE ARE</h1>
                 </div>
                 <div class="row p-0 m-0 pb-2">
-                    <div class="col-md-6 mt-4 mb-5 m-0 p-0">
+                    <div class="col-md-6 mt-4 mb-5">
                         <div class="leftLineDiv ps-3">
                             <h2 class="fs-3 fw-bold text-white text-uppercase">Saudi Industrial Support Services: Three
                                 Decades of Excellence</h2>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="leftLineDiv ps-3 ms-2">
+                        <div class="leftLineDiv ps-3 ms-lg-2">
                             <p style="text-align: justify;color:#a9a8a8;">
                                 <span class="d-block pb-2">
                                     Our commitment goes beyond just meeting client expectations; we aim to exceed
@@ -147,7 +147,7 @@
 
                 </div>
                 <div class="row about-us__container">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 ps-4 mt-5 mb-5">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 ps-4 mb-5">
                         <div class="about-us__lastSect1">
                             <img src="{{ asset('assets/repairing/small_880.jpg') }}" />
                         </div>

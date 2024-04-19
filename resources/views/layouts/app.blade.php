@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
         integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Exotic Car Services</title>
+    <title>Saudi Industrial</title>
     <style>
         .dropdown-menu {
             display: none;
@@ -439,25 +439,25 @@
                         {{-- <li class="footer fw-bold mt-2 fs-5">QUICK NAV</li> --}}
                         {{-- <li class="footer header1 text-wrap fw-normal mt-2">SHOP</li> --}}
                         <a href="{{ route('home') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">HOME</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">HOME</li>
                         </a>
                         <a href="{{ route('about-us') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">ABOUT US</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">ABOUT US</li>
                         </a>
                         <a href="{{ route('services') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">SERVICES</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">SERVICES</li>
                         </a>
                         <a href="{{ route('career') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">CAREERS</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">CAREERS</li>
                         </a>
                         <a href="{{ url('blogs') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">BLOGS</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">BLOGS</li>
                         </a>
                         <a href="{{ route('industries-surved') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">INDUSTRIES SERVED</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">INDUSTRIES SERVED</li>
                         </a>
                         <a href="{{ route('contact-us') }}" class="bg-black" style="text-decoration: none">
-                            <li class="footer pb-sm-2 header1 text-wrap fw-normal mt-2">CONTACT US</li>
+                            <li class="footer header1 text-wrap fw-normal mt-2">CONTACT US</li>
                         </a>
                     </ul>
                 </div>
