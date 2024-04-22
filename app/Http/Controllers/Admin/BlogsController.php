@@ -50,10 +50,10 @@ class BlogsController extends Controller
             $blog = Blog::create($finalData);
             if ($blog) {
                 $blog->addMedia($request->file('blog_image'))->toMediaCollection('blog_images');
-                Alert::success('record added successfully...!');
+                Alert::success(ucwords('record added successfully!'));
                 return redirect(route('blog.index'));
             } else {
-                toast('record didn\'t created...!', 'error');
+                toast(ucwords('record didn\'t created!'), 'Error');
                 return back();
             }
         } catch (\Throwable $th) {
@@ -86,18 +86,18 @@ class BlogsController extends Controller
             if ($blog->update($request->sanitisedUpdate())) {
                 $blog->clearMediaCollection('blog_images');
                 $blog->addMedia($request->file('blog_image'))->toMediaCollection('blog_images');
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('blog.index'));
             }else {
-                toast('blog did not updated...!','error');
+                toast(ucwords('blog did not updated!'),'Error');
                 return back();
             }
         }else {
             if ($blog->update($request->sanitisedUpdate())) {
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('blog.index'));
             }else {
-                toast('blog did not updated...!','error');
+                toast(ucwords('blog did not updated!'),'Error');
                 return back();
             }
         }
@@ -110,7 +110,7 @@ class BlogsController extends Controller
     {
         if (isset($blog)) {
             $blog->delete();
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
         } else {
             Alert::error('Blog not found!');
         }

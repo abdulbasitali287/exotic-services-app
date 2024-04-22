@@ -16,9 +16,8 @@
                 {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
                 <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
-            <div
-                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+            <div class="col-6 z-0 position-absolute bg-white align-self-end ps-md-5 pb-md-5 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-md-5 mb-md-4 my-3 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
                 <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
             </div>
@@ -58,7 +57,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 pb-3">
                         <div class="leftLineDiv ps-3 ms-lg-2">
                             <p style="text-align: justify;color:#a9a8a8;">
                                 <span class="d-block pb-2">
@@ -78,7 +77,7 @@
                                 </span>
                                 </span>
                             </p>
-                            <a href="{{ route('contact_us') }}" class="anchor_text1"
+                            <a href="{{ route('contact-us') }}" class="anchor_text1"
                                 style="color:#f3f3f3; font-size: 20px;">CONTACT US</a>
                         </div>
                     </div>
@@ -147,9 +146,9 @@
 
                 </div>
                 <div class="row about-us__container">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 ps-4 mb-5">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 ps-4 mb-md-5 mb-sm-2">
                         <div class="about-us__lastSect1">
-                            <img src="{{ asset('assets/repairing/small_880.jpg') }}" />
+                            <img src="{{ asset('assets/repairing/small_880.jpg') }}"/>
                         </div>
                     </div>
 
@@ -166,7 +165,7 @@
                                 {{-- <h3>Expert service when you need it. We'll be there for you in time. We'll tow your car, fix it and get you back on the road. This is our guarantee to you.</h3> --}}
                             </div>
                             {{-- <a href="{{ route('contact_us') }}"><button class="click-btn text-black px-4 py-3 border-0 font_with_heading mt-2" style="background-color: white;font-size: large;">CONTACT US<i class="fas fa-arrow-right ps-2"></i></button></a> --}}
-                            <a href="#" class="btn btn-dark px-5 py-3 mt-1 border-0 rounded-0"
+                            <a href="{{ route('contact-us') }}" class="btn btn-dark px-5 py-3 mt-1 border-0 rounded-0"
                                 style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;

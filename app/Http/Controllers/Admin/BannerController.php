@@ -10,6 +10,7 @@ use App\Models\Page;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class BannerController extends Controller
 {
@@ -42,10 +43,10 @@ class BannerController extends Controller
                 foreach ($request->file('banner_image') as $file) {
                     $banner->addMedia($file)->toMediaCollection('banner_images');
                 }
-                Alert::success('record added successfully...!');
+                Alert::success(ucwords('record added successfully!'));
                 return redirect(route('banner.index'));
             } else {
-                toast('record not created...!', 'error');
+                toast(ucwords('record not created!'), 'Error');
             }
         }
     }
@@ -63,18 +64,18 @@ class BannerController extends Controller
                 foreach ($request->file('banner_image') as $file) {
                     $banner->addMedia($file)->toMediaCollection('banner_images');
                 }
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('banner.index'));
             }else {
-                toast('banner did not updated...!','error');
+                toast(ucwords('banner did not updated!'),'Error');
                 return back();
             }
         }else {
             if ($banner->update($request->sanitisedUpdate())) {
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('banner.index'));
             }else {
-                toast('banner did not updated...!','error');
+                toast(ucwords('banner did not updated!'),'Error');
                 return back();
             }
         }
@@ -84,7 +85,7 @@ class BannerController extends Controller
     {
         if (isset($banner)) {
             $banner->delete();
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
             return redirect(route('banner.index'));
         }
     }

@@ -20,7 +20,7 @@
                     @forelse ($reviews as $review)
                         <tr>
                             <td class="ps-4">
-                                {{ $review->name }}
+                                {{ Str::upper($review->name) }}
                             </td>
                             <td>{{ $review->rating }}</td>
                             <td>{{ Str::limit($review->review, 20, '...') }}</td>

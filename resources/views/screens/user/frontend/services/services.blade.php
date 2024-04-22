@@ -119,7 +119,7 @@
 </style>
 @section('content')
     <section>
-        <div class="container-fluid">
+        <div class="container-fluid m-0 p-0">
             @foreach ($bannersData as $banner)
         @if ($banner->page === "services")
         <div class="row p-0 m-0">
@@ -127,8 +127,8 @@
                 {{-- <img src="{{ asset('assets/banners/about-us-banner.jpg') }}" alt="" class="w-75"> --}}
                 <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
-            <div class="col-md-6 col z-0 position-absolute bg-white align-self-end ps-md-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+            <div class="col-md-6 col z-0 position-absolute bg-white align-self-end ps-md-5 pb-md-5 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-md-5 mb-md-4 pt-sm-2 pt-2 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
                 <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
             </div>
@@ -145,14 +145,14 @@
                     <h4 class="text-black d-flex flex-wrap fw-bold font_heading text-uppercase m-0" style="font-weight: 700 !important;">
                         Discover Our Comprehensive Industrial Services</h4>
                 </div>
-                <div class="col-md-6 p-0 px-5">
+                <div class="col-md-6 col px-md-5 px-sm-2">
                     <div class="services-sec mt-0">
                         <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span
                                     class="text-black fw-normal m-3 side_heading"
                                     style="font-weight: 800 !important;">+971000000000</span></span></i></a>
                         <p class="font ps-5" style="color: #777777; font-size: 16px!important;">If you have any question,
                             feel free to Contact Us</p>
-                        <a href="{{ route('contact_us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
+                        <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -177,7 +177,7 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col main-page__services">
-                    <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
+                    <h1 class="text-dark ps-0 display-5 fw-bold font_heading">OUR SERVICES</h1>
                     <a href="{{ route('services') }}" class="text-dark anchor_text">VIEW ALL SERVICES</a>
                 </div>
             </div>
@@ -253,7 +253,7 @@
                             asperiores mollitia maxime dolores illo, cumque magni perspiciatis in consequatur ipsa? Voluptas
                             inventore ab sunt! Minus animi voluptate reiciendis fuga laborum expedita molestias, aliquid
                             accusantium iste dolorem consequuntur cumque fugiat nihil cupiditate quidem odit?</p>
-                        <a href="{{ route('contact_us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ps-4 pe-4"
+                        <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ps-4 pe-4"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -285,7 +285,7 @@
     </div>
 
     <section>
-        <div class="container-md">
+        <div class="container-md overflow-hidden">
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="text-dark display-5 fw-bold py-5 font_heading cus-approve">100% APPROVED BY CUSTOMERS</h1>
@@ -294,7 +294,7 @@
             <div class="row align-items-center">
                 <div class="col-12">
                     <div class="row justify-content-center align-items-center reviews main-page__reviews">
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex">
                             <div class="card mx-auto" style="width:330px!important">
                                 <div class="w-100">
                                     <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
@@ -322,9 +322,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-5 main-page__realAll">
+            <div class="row pbB-md-5 main-page__realAll">
                 <div class="col-12 pt-3 pb-3 text-center">
-                    <a href="{{ route('reviews') }}" class="text-dark anchor_text ">READ ALL REVIEWS</a>
+                    <a href="{{ route('reviews') }}" class="text-dark anchor_text">READ ALL REVIEWS</a>
                 </div>
             </div>
         </div>

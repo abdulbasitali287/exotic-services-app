@@ -23,10 +23,10 @@ class PhoneNumberController extends Controller
             'phone_number' => $request->phone_number
         ]);
         if ($phoneNumber) {
-            Alert::success('record added successfully...!');
+            Alert::success(ucwords('record added successfully!'));
             return back();
         }else {
-            toast('phone number did not created...!','error');
+            toast(ucwords('phone number did not created!'),'error');
             return back();
         }
     }

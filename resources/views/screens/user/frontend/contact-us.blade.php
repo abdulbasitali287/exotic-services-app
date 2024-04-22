@@ -26,10 +26,10 @@
                 <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
             <div
-                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+                class="col-6 z-0 position-absolute bg-white align-self-end ps-md-5 ps-2 pb-md-5 p-0 m-0 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-md-5 mb-md-4 pt-md-0 pt-2 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
-                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
+                <h1 class="text-black display-3 fw-bold pt-4 pb-md-4 pb-sm-2">{{ $banner->title }}</h1>
             </div>
         </div>
         @endif
@@ -41,7 +41,7 @@
             <h1 class="ms-5 display-5 fw-bold font_heading mt-5" >LOCATION & <br> INFORMATION</h1>
             <div class="contact-us__servicesAll">
             <div class="ps-4 ms-2 contact-us__services">
-            <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">{{ isset($getNo->phone_number) }}</span></span></i></a>
+            <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">{{ $phoneNumber->phone_number }}</span></span></i></a>
             <p class="font ps-1 mb-0 mt-3" style="color: #777777; font-size: 14px!important;">Industrial Area , Al Jubail Saudi Arabia, 0000</p>
             {{-- <p class="font ps-1" style="color: #777777; font-size: 14px!important;">SERVICE@EMAIL.COM </p> --}}
             </div>
@@ -51,15 +51,15 @@
             <p class="font ps-1" style="color: #777777; font-size: 14px!important;">SAT: 8:30 AM – 2:00 PM</p>
             </div>
             <div class="ps-4 ms-2 contact-us__services">
-                <a href="#"><i class="fa fa-calendar-o text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">CONTACT US</span></span></i></a>
-                    <a href="#" class="btn btn-dark px-5 py-3 mt-1 border-0 rounded-0"
+                <a href="#appointment"><i class="fa fa-calendar-o text-black ps-2 fs-4"><span class="text-black fw-normal m-3 side_heading">CONTACT US</span></span></i></a>
+                    <a href="{{ route('contact-us') }}" class="btn btn-dark px-5 py-3 mt-1 border-0 rounded-0"
                                 style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
                         line-height: 1.56em !important;
                         letter-spacing: 2px !important;
                     font-family: poppins, Sans-serif !important;">
-                                CONTACT US<i class="fas fa-arrow-right ps-2 text-white"></i>
+                                SCHEDULE INSPECTION VISIT<i class="fas fa-arrow-right ps-2 text-white"></i>
                             </a>
             </div>
             </div>

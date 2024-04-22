@@ -159,16 +159,16 @@
                 <img src="{{ $banner->getFirstMediaUrl('banner_images') }}" class="w-75 rounded-0" alt="sevice image">
             </div>
             <div
-                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+                class="col-6 z-0 position-absolute bg-white align-self-end pt-2 ps-md-5 pb-md-5 pb-sm-2 pt-sm-2 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-md-5 mb-md-4 mt-sm-2 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
-                <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
+                <h1 class="text-black display-3 fw-bold py-md-4 pb-sm-2">{{ $banner->title }}</h1>
             </div>
         </div>
         @endif
         @endforeach
         <div class="container">
-            <div class="row py-5" style="width: 100%;">
+            <div class="row py-5 gap-2 mx-auto" style="width: 100%;">
                 @forelse ($blogs as $blog)
                 <div class="col-lg-4 px-2">
                     <div class="card mb-sm-4 shadow border-0">

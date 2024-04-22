@@ -36,9 +36,9 @@ class ContactUsController extends Controller
     {
         if (isset($contact)) {
             $contact->delete();
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
         } else {
-            Alert::error('Record not found!');
+            Alert::error(ucwords('Record not found!'));
         }
         return back();
     }

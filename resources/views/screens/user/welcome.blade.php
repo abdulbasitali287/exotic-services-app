@@ -187,7 +187,7 @@
         <div class="container-md">
             <div class="row mt-md-5">
                 <div class="col">
-                    <div class="pb-sm-3 pb-lg-0">
+                    <div class="pb-sm-3 pb-3 pb-lg-0">
                         <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
                         <a href="{{ route('services') }}" class="text-dark anchor_text">VIEW ALL SERVICES</a>
                     </div>
@@ -249,12 +249,17 @@
                     <img src="{{ asset('assets/service-home-2-transformed.jpeg') }}" alt="" class="img-fluid w-100 book-an__appt"
                         style="height: 600px;!important;object-fit:cover">
                     <div class="position-absolute top-50 start-50 translate-middle book-an__apptBtn">
-                        <a href="{{ route('services') }}" class="btn btn-dark text-white fs-6 border-0 rounded-circle round_button"
+                        <a href="{{ route('services') }}" class="btn fs-6 border-0 rounded-circle round_button"
                             style="font-size: 15px !important;
+                            color: #fff!important;
                         font-weight: bold !important;
                         text-transform: uppercase !important;
                     font-family: poppins, Sans-serif !important;
-                    background: var(--background-color-three);color: #1d1c1c;">
+                    background: var(--background-color-three);color: #1d1c1c;transition: background-color 0.3s, color 0.3s;"
+                    onmouseover="this.style.backgroundColor='white'; this.style.color='#f69517';"
+                    onmouseout="this.style.backgroundColor='var(--background-color-three)'; this.style.color='#fff';"
+
+                    >
                             BOOK OUR <i class="fas fa-arrow-right ps-2"></i><br> SERVICES
                         </a>
                     </div>
@@ -265,7 +270,7 @@
     </section>
 
     <section>
-        <div class="container-md">
+        <div class="container-md overflow-hidden">
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="text-dark display-5 fw-bold py-5 font_heading cus-approve">100% APPROVED BY CUSTOMERS</h1>
@@ -274,27 +279,32 @@
             <div class="row align-items-center">
                 <div class="col-12">
                     <div class="row justify-content-center align-items-center reviews main-page__reviews">
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-flex">
                             <div class="card mx-auto" style="width:330px!important">
                                 <div class="w-100">
                                     <img src="{{ asset('assets/comma.png') }}" width="100" alt="">
                                 </div>
                                 <div class="px-3 pb-3">
-                                    <p class="card-text d-block border-bottom font py-3 pb-4" style="color: #777777;text-align:justify;">Lorem
-                                        ipsum
-                                        dolor, sit amet consectetur adipisicing elit. Aut odit atque, perferendis tempore,
-                                        soluta sunt aperiam voluptatibus, illo velit ullam facere ad autem numquam! Unde
-                                        minima
-                                        velit eaque nulla explicabo sint, enim ducimus asperiores, sit a magnam esse porro,
-                                        molestiae tenetur quos tempora repellat! Quas corrupti rem obcaecati deleniti iusto.
+                                    <p class="card-text d-block border-bottom font py-3 pb-4" style="color: #777777;text-align:justify;">
+                                        {{ $review->review }}
                                     </p>
                                     <h5 class="card-title">Test Review</h5>
-                                    <div>
+                                    {{-- <h5 class="card-title">{{ $review->name }}</h5> --}}
+                                    @push('styles')
+                                        <style>
+                                            #rating .fa-star.filled{
+                                                color: var(--background-color-two);
+                                            }
+                                        </style>
+                                    @endpush
+                                    <div id="rating">
+                                        @for ($i = 1;$i <= 5;$i++)
+                                            <span class="fa fa-star {{ $i <= $review->rating ? 'checked filled' : '' }}"></span>
+                                        @endfor
+                                        {{-- <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
                                         <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
                                         <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
+                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +326,8 @@
                 <div class="w-25 ps-4 main-page__getApp">
                     <h1 class="text-dark display-5 fw-bold py-5 font_heading">GET <span
                             style="color: var(--background-color-two);">IN</span>
-                        TOUCH</h1>
+                        TOUCH
+                    </h1>
                 </div>
             </div>
         </div>

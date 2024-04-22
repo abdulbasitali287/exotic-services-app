@@ -48,10 +48,10 @@ class ServiceController extends Controller
             $service = Service::create($request->sanitisedStore());
             if ($service) {
                 $service->addMedia($request->file('service_banner'))->toMediaCollection('service_banners');
-                Alert::success('record added successfully...!');
+                Alert::success(ucwords('record added successfully!'));
                 return redirect(route('service.index'));
             } else {
-                toast('record didn\'t created...!', 'error');
+                toast(ucwords('record didn\'t created!'), 'error');
                 return back();
             }
         } catch (\Throwable $th) {
@@ -79,18 +79,18 @@ class ServiceController extends Controller
             if ($service->update($request->sanitisedUpdate())) {
                 $service->clearMediaCollection('service_banners');
                 $service->addMedia($request->file('service_banner'))->toMediaCollection('service_banners');
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('service.index'));
             } else {
-                toast('service did not updated...!', 'error');
+                toast(ucwords('service did not updated!'), 'error');
                 return back();
             }
         } else {
             if ($service->update($request->sanitisedUpdate())) {
-                Alert::success('record updated successfully...!');
+                Alert::success(ucwords('record updated successfully!'));
                 return redirect(route('service.index'));
             } else {
-                toast('blog did not updated...!', 'error');
+                toast(ucwords('blog did not updated!'), 'error');
                 return back();
             }
         }
@@ -103,9 +103,9 @@ class ServiceController extends Controller
     {
         if (isset($service)) {
             $service->delete();
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
         } else {
-            Alert::error('Record not found!');
+            Alert::error(ucwords('Record not found!'));
         }
         return redirect()->route('service.index');
     }

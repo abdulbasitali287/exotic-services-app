@@ -36,10 +36,10 @@ class FaqsController extends Controller
     {
         $faq = Faqs::create($request->sanitisedStore());
         if ($faq) {
-            Alert::success('record added successfully...!');
+            Alert::success(ucwords('record added successfully!'));
             return redirect(route('faqs.index'));
         }else {
-            toast('faq did not created...!','error');
+            toast(ucwords('faq did not created!'),'error');
             return back();
         }
     }
@@ -58,10 +58,10 @@ class FaqsController extends Controller
     public function update(UpdateRequest $request, Faqs $faq)
     {
         if ($faq->update($request->sanitisedUpdate())) {
-            Alert::success('record updated successfully...!');
+            Alert::success(ucwords('record updated successfully!'));
             return redirect(route('faqs.index'));
         }else {
-            toast('faq did not updated...!','error');
+            toast(ucwords('faq did not updated!'),'error');
             return back();
         }
     }
@@ -73,9 +73,9 @@ class FaqsController extends Controller
     {
         if (isset($faq)) {
             $faq->delete();
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
         } else {
-            Alert::error('faq not found!');
+            Alert::error(ucwords('faq not found!'));
         }
         return redirect()->route('faqs.index');
     }

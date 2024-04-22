@@ -25,14 +25,14 @@ class HomeController extends Controller
 
     public function blogs(): View
     {
-        $blogs = Blog::get();
+        $blogs = Blog::where('status',1)->get();
         return view('screens.user.frontend.blogs.blogs',compact('blogs'));
     }
 
     public function blogDetails(Blog $blog): View
     {
-        $previousPost = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
-        $nextPost = Blog::where('id', '>', $blog->id)->orderBy('id')->first();
+        $previousPost = Blog::where('id', '<', $blog->id)->where('status',1)->orderBy('id', 'desc')->first();
+        $nextPost = Blog::where('id', '>', $blog->id)->where('status',1)->orderBy('id')->first();
         return view('screens.user.frontend.blogs.blog-detail',compact('blog', 'previousPost', 'nextPost'));
     }
 

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Vetra | E-Commerce HTML Admin Dashboard Template </title>
+    <title> Saudi Industrial </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.png') }} "/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-06.png') }}">
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,7 +46,7 @@
     @include('sweetalert::alert')
 <!-- preloader -->
 <div class="preloader">
-    <img src=" {{ asset('admin/assets/images/logo.svg') }} " alt="logo">
+    <img src=" {{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-08.png') }} " alt="logo">
     <div class="preloader-icon"></div>
 </div>
 <!-- ./ preloader -->
@@ -63,7 +63,7 @@
 <div class="menu">
     <div class="menu-header">
         <a href="index.html" class="menu-header-logo">
-            <img src="./assets/images/logo.svg" alt="logo">
+            <img src="{{ asset('assets/logos/SAUDI INDUSTRIAL LOGO-08.png') }}" alt="logo" style="width: 100px">
         </a>
         <a href="index.html" class="btn btn-sm menu-close-btn">
             <i class="bi bi-x"></i>
@@ -73,11 +73,11 @@
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center" data-bs-toggle="dropdown">
                 <div class="avatar me-3">
-                    <img src="./assets/images/user/man_avatar3.jpg"
-                         class="rounded-circle" alt="image">
+                    <img src="{{ asset('assets/logos/placeholder-person.png') }}"
+                         class="rounded-circle border" alt="image">
                 </div>
                 <div>
-                    <div class="fw-bold">{{ Auth::user()->name }}</div>
+                    <div class="fw-bold">{{ Str::ucfirst(Auth::user()->name) }}</div>
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end">
@@ -114,9 +114,9 @@
             <li>
                 <a class="{{ $currentRouteName == 'service.index' || $currentRouteName == 'service.create' || $currentRouteName == 'service.edit' ? 'active' : '' }}" href="{{ route('service.index') }}">
                     <span class="nav-link-icon">
-                        <i class="fa-brands fa-servicestack"></i>
+                        <i class="fa-solid fa-gears"></i>
                     </span>
-                    <span>Manage services</span>
+                    <span>Manage Services</span>
                 </a>
             </li>
             <li>
@@ -124,7 +124,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-image"></i>
                     </span>
-                    <span>Manage banners</span>
+                    <span>Manage Banners</span>
                 </a>
             </li>
             <li>
@@ -132,7 +132,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-edit"></i>
                     </span>
-                    <span>Manage blogs</span>
+                    <span>Manage Blogs</span>
                 </a>
             </li>
             <li>
@@ -140,7 +140,7 @@
                     <span class="nav-link-icon">
                         <i class="fa-solid fa-users-viewfinder"></i>
                     </span>
-                    <span>Manage reviews</span>
+                    <span>Manage Reviews</span>
                 </a>
             </li>
             <li>
@@ -148,7 +148,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-question-circle"></i>
                     </span>
-                    <span>Manage faqs</span>
+                    <span>Manage Faqs</span>
                 </a>
             </li>
             <li>
@@ -156,7 +156,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-phone"></i>
                     </span>
-                    <span>Manage phone number</span>
+                    <span>Manage Phone Number</span>
                 </a>
             </li>
             <li>
@@ -164,7 +164,7 @@
                     <span class="nav-link-icon">
                         <i class="fa fa-envelope"></i>
                     </span>
-                    <span>Contact us</span>
+                    <span>Contact Us</span>
                 </a>
             </li>
 

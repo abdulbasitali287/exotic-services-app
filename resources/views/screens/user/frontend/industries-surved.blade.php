@@ -15,6 +15,17 @@
     .carousel-control-prev-icon,.carousel-control-next-icon{
 
     }
+
+   @media (max-width: 500px) {
+    .carousel-control-prev{
+        left: 3%;
+        top: -30%;
+    }
+    .carousel-control-next{
+        right: 3%;
+        top: -30%;
+    }
+   }
 </style>
 
 @endpush
@@ -28,8 +39,8 @@
                 <img src="{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}" class="w-75 rounded-0" alt="sevice image" style="object-fit: cover">
             </div>
             <div
-                class="col-6 z-0 position-absolute bg-white align-self-end ps-5 pb-5 brands-sec__start contact-us_bannerTxt">
-                <p class="mt-5 mb-4 font text-dark-emphasis fw-semibold">{{ $banner->description }}
+                class="col-6 z-0 position-absolute bg-white align-self-end ps-md-5 pb-md-5 ps-sm-2 pb-sm-2 brands-sec__start contact-us_bannerTxt">
+                <p class="mt-md-5 mb-md-4 my-2 font text-dark-emphasis fw-semibold">{{ $banner->description }}
                 </p>
                 <h1 class="text-black display-3 fw-bold pt-4 pb-4">{{ $banner->title }}</h1>
             </div>
@@ -53,16 +64,16 @@
     <div class="container">
         <div class="row pt-4">
             <div class="col-md-6 p-0">
-                <h1 class="text-black display-5 fw-bold text-uppercase">INDUSTRIES WE SERVE WITH EXCELLENCE</h1>
+                <h1 class="ps-3 text-black display-5 fw-bold text-uppercase">INDUSTRIES WE SERVE WITH EXCELLENCE</h1>
             </div>
-            <div class="col-md-6 p-0 px-md-5">
+            <div class="col-md-6 px-md-5 px-sm-2">
                 <div class="services-sec mt-0">
                     <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span
                                 class="text-black fw-normal m-3 side_heading"
                                 style="font-weight: 800 !important;">+971000000000</span></span></i></a>
                     <p class="font ps-5" style="color: #777777; font-size: 16px!important;">If you have any question,
                         feel free to Contact Us</p>
-                    <a href="{{ route('contact_us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
+                    <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
                         style="font-size: 15px !important;
                     font-weight: 500 !important;
                     text-transform: uppercase !important;

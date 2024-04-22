@@ -132,6 +132,7 @@
                     <h1 class="text-black fw-bold text-uppercase"
                         style="font-weight: 700 !important;font-size:35px;">{{ $service->sub_heading }}</h1>
                 </div>
+                {{-- <p>The ID is: {{ request('service')->id }}</p> --}}
                 <div class="col-md-6 p-0 px-5">
                     <div class="services-sec mt-0">
                         <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span
@@ -139,7 +140,7 @@
                                     style="font-weight: 800 !important;">+971000000000</span></span></i></a>
                         <p class="font ps-5" style="color: #777777; font-size: 16px!important;">If you have any question,
                             feel free to Contact Us</p>
-                        <a href="{{ route('contact_us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
+                        <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -150,6 +151,25 @@
                     </div>
                 </div>
             </div>
+            @if(request()->route()->hasParameter('service'))
+                @if (request('service')->id === 4)
+                <div class="row pt-2">
+                    <div class="col">
+                        <div style="width: 100%;height: 350px;object-fit: cover;" >
+                            <img src="{{ asset('assets/repair-and-maintenance/Forklift 12.png') }}" class="w-100" height="100%" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                @elseif (request('service')->id === 6)
+                <div class="row pt-2">
+                    <div class="col">
+                        <div style="width: 100%;height: 350px;object-fit: cover;" >
+                            <img src="{{ asset('assets/repair-and-maintenance/IMAG0244.jpg') }}" class="w-100" height="100%" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                @endif
+            @endif
             <div class="row">
                 <div class="col py-4">
                     <div id="blogBody" style="color: #777777;font-size: 16px!important;text-align: justify;">
@@ -222,7 +242,7 @@
                                 from the highest standards of reliability and power.
                             </span>
                         </p>
-                        <a href="{{ route('contact_us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ps-4 pe-4"
+                        <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ps-4 pe-4"
                             style="font-size: 15px !important;
                         font-weight: 500 !important;
                         text-transform: uppercase !important;
@@ -259,6 +279,13 @@
             $('#blogBody strong').css({'text-transform':'uppercase','font-size':'30px','color':'#000'});
             $('#blogBody p').css({'color': '#777777','font-size': '16px!important','text-align':'justify'});
             $('#blogBody br').remove();
+
+            @if ( (request('service')->id === 4) )
+                const imageUrl = "{{ asset('assets/repair-and-maintenance/Hyster_Forklift_Repair_Service-scaled.jpg') }}";
+                const imgTag = '<img src="' + imageUrl + '" class=" mb-2" width="100%" height="300" style="object-fit: cover;">';
+                $('#blogBody h1').eq(0).before(imgTag);
+
+            @endif
         });
     </script>
 

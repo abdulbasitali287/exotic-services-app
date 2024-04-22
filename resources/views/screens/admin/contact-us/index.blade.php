@@ -23,7 +23,7 @@
                             <td class="text-center">
                                 <i class="fa-solid fa-angle-down details-btn me-1 fs-5 fw-bold text-danger d-block" style="cursor: pointer"></i>
                             </td>
-                            <td>{{ $contact->name }}</td>
+                            <td>{{ Str::upper($contact->name) }}</td>
                             <td>{{ $contact->email }}</td>
                             <td>{{ $contact->phone }}</td>
                             <td class="text-end">

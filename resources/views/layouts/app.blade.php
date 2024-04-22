@@ -93,7 +93,7 @@
         <div class="row p-0 m-0 extraNav">
             <div class="col-12 m-0 p-0 text-center bg-white header_up ">
                 {{-- <div class="col-12 header1 text-center header_up " style="background-color: #2b2e3a"> --}}
-                <a href="{{ route('contact-us') }}"><i class="fa-solid fa-phone-flip text-dark mx-3 mt-3"><span
+                <a href="tel:+971559020732" ><i class="fa-solid fa-phone-flip text-dark mx-3 mt-3"><span
                             class="text-dark fw-normal m-3">CALL US
                             NOW {{ isset($phNo->phone_number) }}&nbsp;&nbsp;</span><span
                             class="fw-normal fs-4">|</span></i></a>
@@ -542,8 +542,6 @@
     @yield('js')
 
     @stack('js')
-
-
     {{-- <script>
         $(document).ready(function(){
 

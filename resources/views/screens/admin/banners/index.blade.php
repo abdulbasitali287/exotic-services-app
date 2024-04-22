@@ -23,7 +23,7 @@
                         {{-- <td class="text-center">
                             <i class="fa-solid fa-angle-down details-btn me-1 fs-5 fw-bold text-danger d-block" style="cursor: pointer"></i>
                         </td> --}}
-                        <td class="ps-4">{{ $banner->page }}</td>
+                        <td class="ps-4">{{ Str::upper($banner->page) }}</td>
                         <td><img src="{{ asset($banner->getFirstMediaUrl('banner_images')) }}" class="rounded p-1 border" width="100" height="60" alt="{{ $banner->alt_text }}"></td>
                         <td>{{ Str::limit($banner->title, 30, '...') }}</td>
                         <td class="text-end">

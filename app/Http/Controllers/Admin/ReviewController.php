@@ -50,10 +50,10 @@ class ReviewController extends Controller
     {
         $review = new Review();
         if ($this->handleFormRequest($request->sanitisedStore(),$review)) {
-            Alert::success('record added successfully...!');
+            Alert::success(ucwords('record added successfully!'));
             return redirect(route('reviews.index'));
         }else {
-            toast('record not added...!','error');
+            toast(ucwords('record not added!'),'error');
             return back();
         }
     }
@@ -80,10 +80,10 @@ class ReviewController extends Controller
     public function update(UpdateRequest $request, Review $review)
     {
         if ($this->updateRecord($request->sanitisedUpdate(),$review)) {
-            Alert::success('record updated successfully...!');
+            Alert::success(ucwords('record updated successfully!'));
             return redirect(route('reviews.index'));
         }else {
-            toast('record not updated...!','error');
+            toast(ucwords('record not updated!'),'error');
             return back();
         }
     }
@@ -94,10 +94,10 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         if ($this->destroyRecord($review)) {
-            Alert::success('record deleted successfully...!');
+            Alert::success(ucwords('record deleted successfully!'));
             return redirect(route('reviews.index'));
         }else {
-            toast('record not deleted...!','error');
+            toast(ucwords('record not deleted!'),'error');
             return back();
         }
     }

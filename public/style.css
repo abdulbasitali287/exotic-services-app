@@ -154,10 +154,11 @@ header {
 
 .font_heading{
     /* font-family: poppins,Sans-serif !important; */
+    padding-left: 10px;
     font-size: 42px !important;
     font-weight: 700 !important;
-    margin-bottom: 36px;
-    margin-top: 15px;
+    /* margin-bottom: 36px;
+    margin-top: 15px; */
 
 }
 
@@ -933,7 +934,17 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     font-size: 42px;
    }
 
+   @media (max-width: 380px) {
+    .font_heading{
+        /* font-family: poppins,Sans-serif !important; */
+        padding-left: 10px;
+        font-size: 30px !important;
+        font-weight: 700 !important;
+        /* margin-bottom: 36px;
+        margin-top: 15px; */
 
+    }
+   }
 
   @media (max-width: 400px) {
     .extraNav{
@@ -1425,7 +1436,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 100px!important;
+        font-size: 50px!important;
     }
 
 
@@ -1454,7 +1465,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     } */
 
     .about-us__secTwo h1 {
-        font-size: 100px!important;
+        font-size: 50px!important;
     }
 
     .about-us__secTwo h2 {
@@ -1545,7 +1556,15 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     .extraNav{
         display: none;
     }
+    .font_heading{
+        /* font-family: poppins,Sans-serif !important; */
+        padding-left: 10px;
+        font-size: 30px !important;
+        font-weight: 700 !important;
+        /* margin-bottom: 36px;
+        margin-top: 15px; */
 
+    }
     .myNewIMg{
         height: 320px!important;
         object-fit: cover;
@@ -2024,7 +2043,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 100px!important;
+        /*font-size: 50px!important;*/
     }
 
 
@@ -2053,7 +2072,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1 {
-        font-size: 100px!important;
+        font-size: 80px!important;
     }
 
     .about-us__secTwo h2 {
@@ -2605,7 +2624,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 100px!important;
+        /*font-size: 50px!important;*/
     }
 
 
@@ -3191,7 +3210,7 @@ input[type="time" i]::-webkit-calendar-picker-indicator{
     }
 
     .about-us__secTwo h1{
-        font-size: 100px!important;
+        /*font-size: 50px!important;*/
     }
 
 
