@@ -137,7 +137,7 @@
                     <div class="services-sec mt-0">
                         <a href="#"><i class="fa-solid fa-phone-flip text-black ps-2 fs-4"><span
                                     class="text-black fw-normal m-3 side_heading"
-                                    style="font-weight: 800 !important;">+971000000000</span></span></i></a>
+                                    style="font-weight: 800 !important;">{{ $phoneNumber->phone_number }}</span></span></i></a>
                         <p class="font ps-5" style="color: #777777; font-size: 16px!important;">If you have any question,
                             feel free to Contact Us</p>
                         <a href="{{ route('contact-us') }}" class="btn btn-dark px-4 py-3 border-0 rounded-0 ms-5 ps-4 pe-4"
@@ -155,8 +155,8 @@
                 @if (request('service')->id === 4)
                 <div class="row pt-2">
                     <div class="col">
-                        <div style="width: 100%;height: 350px;object-fit: cover;" >
-                            <img src="{{ asset('assets/repair-and-maintenance/Forklift 12.png') }}" class="w-100" height="100%" style="object-fit: cover;">
+                        <div style="width: 100%;height: 450px;overflow: hidden;" >
+                            <img src="{{ asset('assets/repair-and-maintenance/3001.jpg') }}" class="w-100" height="100%" style="object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
             </h1>
             <p class=" my-4 font text-dark-emphasis px-5" style="font-size: 15px !important;color: #777777!important">
                 Based on customer reviews</p>
-            <a href="#" class="text-dark fw-bold ms-5 anchor_text">READ ALL REVIEWS</a>
+            <a href="{{ route('reviews') }}" class="text-dark fw-bold ms-5 anchor_text">READ ALL REVIEWS</a>
             <p style="border-bottom: 1.5px solid black;" class="mt-5 ms-5 me-5"></p>
         </div>
     </div>
@@ -282,7 +282,7 @@
 
             @if ( (request('service')->id === 4) )
                 const imageUrl = "{{ asset('assets/repair-and-maintenance/Hyster_Forklift_Repair_Service-scaled.jpg') }}";
-                const imgTag = '<img src="' + imageUrl + '" class=" mb-2" width="100%" height="300" style="object-fit: cover;">';
+                const imgTag = '<img src="' + imageUrl + '" class=" mb-2" width="100%" height="450" style="object-fit: cover;">';
                 $('#blogBody h1').eq(0).before(imgTag);
 
             @endif

@@ -426,9 +426,9 @@
                                 class="fw-normal header1 text-white m-2">xyz@gmail.com</span></li>
                         <li class="pb-sm-2">
                             <i class="fa-solid fa-phone text-white "></i>
-                            <span class="fw-normal header1 text-white m-2">
+                            <span class="fw-normal header1 text-white">
                                 <a href="tel:+971503028022"
-                                    style="text-decoration:none;color: #fff;">+971000000000</a>
+                                    style="text-decoration:none;color: #fff;">{{ $phoneNumber->phone_number }}</a>
                             </span>
                         </li>
                     </ul>

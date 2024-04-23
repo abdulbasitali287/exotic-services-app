@@ -116,11 +116,11 @@
     {{-- banner section --}}
     @foreach ($bannersData as $banner)
     @if ($banner->page === "home")
-    <section class="py-5"
+    <section class="py-md-5"
         style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ $banner->getMedia('banner_images')[0]->getUrl('banner') }}');background-size: cover;background-position: right;background-repeat: no-repeat;"
         >
         <div class="container-lg text-sm-center text-lg-start py-md-5">
-            <div class="row">
+            <div class="row py-md-5 py-4">
                 <div class="col-lg-7">
                     <div>
                         <h3 class="display-4 fw-bold text-uppercase text-white">
@@ -188,7 +188,7 @@
             <div class="row mt-md-5">
                 <div class="col">
                     <div class="pb-sm-3 pb-3 pb-lg-0">
-                        <h1 class="text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
+                        <h1 class="ps-0 mt-sm-3 mt-2 text-dark display-5 fw-bold font_heading">OUR SERVICES</h1>
                         <a href="{{ route('services') }}" class="text-dark anchor_text">VIEW ALL SERVICES</a>
                     </div>
                 </div>
@@ -301,10 +301,6 @@
                                         @for ($i = 1;$i <= 5;$i++)
                                             <span class="fa fa-star {{ $i <= $review->rating ? 'checked filled' : '' }}"></span>
                                         @endfor
-                                        {{-- <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span>
-                                        <span class="fa fa-star checked" style="color: var(--background-color-two);"></span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -320,7 +316,7 @@
         </div>
     </section>
 
-    <div class="container-fluid" id="appointment" >
+    <div class="container-fluid" id="appointment">
         <div class="row">
             <div class="col-12 pt-5">
                 <div class="w-25 ps-4 main-page__getApp">
@@ -331,7 +327,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="contactForm">
             <div class="col-12">
                 {!! Form::open(['route' => 'contact-us.store']) !!}
                     <div class="d-flex justify-content-around flex-wrap my-new__form">
@@ -378,4 +374,18 @@
             </div>
         </div>
     </div>
+    @push('js')
+    <script>
+        // Check if the URL contains an anchor tag
+        if(window.location.hash) {
+            // Scroll to the anchor position after the page is fully loaded
+            window.addEventListener('load', function() {
+                var element = document.querySelector(window.location.hash);
+                if(element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+    </script>
+    @endpush
 @endsection

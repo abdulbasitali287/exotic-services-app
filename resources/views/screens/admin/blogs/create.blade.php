@@ -85,11 +85,6 @@
     </div>
     <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
     <script>
-        // ClassicEditor
-        //     .create(document.querySelector('#valueEditor'))
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
         loadCkEditor();
         function loadCkEditor(){
             CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
@@ -255,25 +250,6 @@
             ]
         });
         }
-
-
-        // $(document).ready(function() {
-        //     $(document).on('click', '.cloneInput', function(e) {
-        //         e.preventDefault();
-        //         // $(this).each(function() {
-        //         let cloneDiv = $(this).closest('form').find('.card-body').last();
-        //         let $options = cloneDiv.find("input[name='options[]']").val();
-        //         let $value = cloneDiv.find("input[name='key[]']").val();
-        //         let $key = cloneDiv.find("input[name='value[]']").val();
-        //         if ($options !== "" && $key !== "" && $value !== "") {
-        //             let $clonedDiv = cloneDiv.clone();
-        //             $clonedDiv.find('input').val('');
-        //             $clonedDiv.find('.ck-restricted-editing_mode_standard').html("");
-        //             cloneDiv.after($clonedDiv);
-        //         }
-        //         // });
-        //     });
-        // });
     </script>
 @endsection
 

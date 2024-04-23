@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\ContactUs;
 use App\Models\PhoneService;
+use App\Models\Review;
 use App\Models\Service;
 use App\Models\ServiceBannerImage;
 use App\Models\ServiceBrand;
@@ -18,9 +19,9 @@ class AdminController extends Controller
 {
 
     public function getReviews(){
-        $reviews = ServiceReview::get();
-        $bannerImg = ServiceBannerImage::where('page_name', 'review')->first();
-        return view('screens.user.reviews')->with(compact(['reviews','bannerImg']));
+        $reviews = Review::get();
+        // $bannerImg = ServiceBannerImage::where('page_name', 'review')->first();
+        return view('screens.user.frontend.reviews')->with(compact(['reviews']));
     }
 
     public function getFaqs(){

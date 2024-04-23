@@ -168,16 +168,15 @@
         @endif
         @endforeach
         <div class="container">
-            <div class="row py-5 gap-2 mx-auto" style="width: 100%;">
+            <div class="row py-5 mx-auto" style="width: 100%;">
                 @forelse ($blogs as $blog)
                 <div class="col-lg-4 px-2">
-                    <div class="card mb-sm-4 shadow border-0">
+                    <div class="card mb-lg-4 mb-2 shadow border-0">
                         <img src="{{ $blog->getFirstMediaUrl('blog_images') }}"
                             class="card-img-top" alt="...">
                         <div class="card-content text-center">
                             <h5 class="card-title fw-bold px-1 pt-3" style="height: 80px;text-align-justify">
-                                {{ Str::limit($blog->title,60,
-                                ) }}
+                                {{ Str::limit($blog->title,60,)}}
                             </h5>
                             <p class="card-textt">{{ $blog->created_at->format('d-M-Y') }}</p>
                             <div class="d-flex justify-content-center pb-3">

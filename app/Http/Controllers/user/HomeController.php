@@ -20,7 +20,27 @@ class HomeController extends Controller
         $banner = Banner::first();
         $review = Review::first();
         $services = Service::get();
-        return view('screens.user.welcome',compact('banner','review','services'));
+        return view('screens.user.frontend.welcome',compact('banner','review','services'));
+    }
+
+    public function aboutUs(): View
+    {
+        return view('screens.user.frontend.about');
+    }
+
+    public function industriesServed(): View
+    {
+        return view('screens.user.frontend.industries-surved');
+    }
+
+    public function career(): View
+    {
+        return view('screens.user.frontend.career');
+    }
+
+    public function contactUs(): View
+    {
+        return view('screens.user.frontend.contact-us');
     }
 
     public function blogs(): View
@@ -54,5 +74,10 @@ class HomeController extends Controller
 
     public function serviceDetails(Service $service){
         return view('screens.user.frontend.services.service-details',compact('service'));
+    }
+
+    public function reviews(){
+        $reviews = Review::paginate(6);
+        return view('screens.user.frontend.reviews')->with(compact(['reviews']));
     }
 }

@@ -40,20 +40,6 @@
                             </div>
                         </td>
                     </tr>
-                    {{-- <tr class="details-row" style="display: none;">
-                        <td colspan="6">
-                            <!-- Additional details here -->
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="w-100" id="blogBody" style="height: 150px;overflow-y: scroll;">
-                                            {{ $banner->description }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr> --}}
                 @empty
                     <tr>
                         <td><p class="text-muted fs-5 p-2">No records found...!</p></td>

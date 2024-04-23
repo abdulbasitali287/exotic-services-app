@@ -41,12 +41,11 @@
                         </tr>
                         <tr class="details-row" style="display: none;">
                             <td colspan="7">
-                                <!-- Additional details here -->
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
                                             <strong class="pb-3">Message:</strong>
-                                            <div class="w-100" id="blogBody" style="height: 150px;overflow-y: scroll;">
+                                            <div class="w-100" id="blogBody" style="height: 100px;overflow-y: scroll;">
                                                 {{ $contact->description }}
                                             </div>
                                         </div>

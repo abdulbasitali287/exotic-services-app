@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group mb-2">
                             {{ Form::label('banner image', 'Banner Image', ['class' => 'form-label']) }}
-                            {{ Form::file('banner_image[]',['class' => 'form-control','multiple' => true]) }}
+                            {{ Form::file('banner_image[]',['class' => 'form-control']) }}
                             @error('banner_image.*')
                                 <span class="mt-2 text-danger">{{ $message }}</span>
                             @enderror
